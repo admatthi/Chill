@@ -10,6 +10,14 @@ import UIKit
 
 class TextViewController: UIViewController {
 
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var bookcover: UIImageView!
+    @IBOutlet weak var authorlabel: UILabel!
+    @IBOutlet weak var titlelabel: UILabel!
+    @IBAction func tapBack(_ sender: Any) {
+    }
+    @IBOutlet weak var headline: UILabel!
+    @IBOutlet weak var text: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 

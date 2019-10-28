@@ -1,5 +1,5 @@
 //
-//  PaywallViewController.swift
+//  HomeTabViewController.swift
 //  Cleanse
 //
 //  Created by Alek Matthiessen on 10/27/19.
@@ -8,25 +8,11 @@
 
 import UIKit
 
-class PaywallViewController: UIViewController {
+class HomeTabViewController: UITabBarController {
 
-    @IBAction func tapRestore(_ sender: Any) {
-        
-        
-    }
-    @IBAction func tapBack(_ sender: Any) {
-        
-        self.dismiss(animated: true, completion: nil)
-    }
-    @IBAction func tapContinue(_ sender: Any) {
-    }
-    @IBOutlet weak var tapcontinue: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tapcontinue.layer.cornerRadius = 5.0
-        
-        tapcontinue.clipsToBounds = true
         // Do any additional setup after loading the view.
     }
     

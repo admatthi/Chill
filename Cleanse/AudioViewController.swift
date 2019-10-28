@@ -10,7 +10,21 @@
 import UIKit
 
 class AudioViewController: UIViewController {
-
+    @IBAction func tapRead(_ sender: Any) {
+    }
+    @IBAction func tapBack(_ sender: Any) {
+    }
+    @IBOutlet weak var headlinelabel: UILabel!
+    
+    @IBOutlet weak var durationlabel: UILabel!
+    @IBOutlet weak var progressView: UIProgressView!
+    @IBOutlet weak var timeelapsed: UILabel!
+    @IBOutlet weak var notelabel: UILabel!
+    @IBOutlet weak var authorlabel: UILabel!
+    @IBOutlet weak var titlelabel: UILabel!
+    @IBAction func tapPlayorPause(_ sender: Any) {
+    }
+    @IBOutlet weak var tapplayorpause: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
 
