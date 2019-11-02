@@ -211,19 +211,17 @@ class DiscoverViewController: UIViewController, UICollectionViewDelegate, UIColl
             ref = Database.database().reference()
 
 
-            selectedgenre = "Panic"
+            selectedgenre = "All"
             
             genres.removeAll()
 
-            genres.append("Panic")
-
+            genres.append("All")
             genres.append("Anxiety")
-
             genres.append("Depression")
-
-            genres.append("PTSD")
             genres.append("Stress")
-            
+            genres.append("Relationships")
+           
+
 
 
             NotificationCenter.default.addObserver(self, selector: #selector(loadList(notification:)), name: NSNotification.Name(rawValue: "load"), object: nil)
@@ -268,7 +266,7 @@ class DiscoverViewController: UIViewController, UICollectionViewDelegate, UIColl
 
             let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
             layout.sectionInset = UIEdgeInsets(top: 5, left: 0, bottom: 10, right: 0)
-            layout.itemSize = CGSize(width: screenWidth/2.05, height: screenWidth/1.6)
+            layout.itemSize = CGSize(width: screenWidth/2.3, height: screenWidth/1.6)
             layout.minimumInteritemSpacing = 0
             layout.minimumLineSpacing = 0
 
@@ -527,28 +525,76 @@ class DiscoverViewController: UIViewController, UICollectionViewDelegate, UIColl
                 genreCollectionView.reloadData()
 
             } else {
+                
+                if didpurchase {
 
 
                 let book = self.book(atIndexPath: indexPath)
                 
                 
+                headlines.removeAll()
                 
                 bookindex = indexPath.row
                 selectedauthor = book?.author ?? ""
                 selectedtitle = book?.name ?? ""
-                selectedurl = book?.imageURL ?? ""
+                selectedurl = book?.audioURL ?? ""
                 selectedbookid = book?.bookID ?? ""
                 selectedgenre = book?.genre ?? ""
                 selectedamazonurl = book?.amazonURL ?? ""
                 selecteddescription = book?.description ?? ""
                 selectedduration = book?.duration ?? 15
+                selectedheadline = book?.headline1 ?? ""
+                
+                headlines.append(book?.headline1 ?? "x")
+                headlines.append(book?.headline2 ?? "x")
+                headlines.append(book?.headline3 ?? "x")
+                headlines.append(book?.headline4 ?? "x")
+                headlines.append(book?.headline5 ?? "x")
+                headlines.append(book?.headline6 ?? "x")
+                headlines.append(book?.headline7 ?? "x")
+                headlines.append(book?.headline8 ?? "x")
+                
+                headlines = headlines.filter{$0 != "x"}
 
-     
+                let alert = UIAlertController(title: "What would you like to do?", message: "", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Read", style: .default, handler: { action in
+                      switch action.style{
+                      case .default:
+                            print("default")
 
-                            self.performSegue(withIdentifier: "BrowseToOverview", sender: self)
+                        
+                      case .cancel:
+                            print("cancel")
 
-      
+                      case .destructive:
+                            print("destructive")
+
+
+                }}))
+                alert.addAction(UIAlertAction(title: "Listen", style: .default, handler: { action in
+                               switch action.style{
+                               case .default:
+                                     print("default")
+
+                                     self.performSegue(withIdentifier: "HomeToListen", sender: self)
+                               case .cancel:
+                                     print("cancel")
+
+                               case .destructive:
+                                     print("destructive")
+
+
+                         }}))
+                
+                
+                    self.performSegue(withIdentifier: "HomeToRead", sender: self)
+
+                } else {
+                    
+                    self.performSegue(withIdentifier: "CatalagToSale", sender: self)
                 }
+
+            }
 
 
         }
@@ -763,9 +809,12 @@ class DiscoverViewController: UIViewController, UICollectionViewDelegate, UIColl
 
                 if let imageURLString = book?.imageURL, let imageUrl = URL(string: imageURLString) {
 
-//                    cell.titleImage.kf.setImage(with: ImageResource(downloadURL: imageUrl))
+                    cell.titleImage.kf.setImage(with: imageUrl)
                     
                     
+                    var randomint = Int.random(in: 100..<1000)
+                    
+                    cell.viewslabel.text = "\(randomint) views"
 
                     cell.titleImage.layer.cornerRadius = 5.0
                     cell.titleImage.clipsToBounds = true

@@ -9,7 +9,10 @@
 import UIKit
 
 class TitleCollectionViewCell: UICollectionViewCell {
+    @IBOutlet weak var backlabel: UIImageView!
     
+    @IBOutlet weak var datelabel: UILabel!
+    @IBOutlet weak var viewslabel: UILabel!
     @IBOutlet weak var tapdown: UIButton!
     @IBOutlet weak var tapup: UIButton!
     @IBOutlet weak var upvoteslabel: UILabel!

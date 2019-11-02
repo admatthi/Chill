@@ -2,15 +2,11 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="BasisGrotesquePro-Regular.ttf">
-            <string>BasisGrotesquePro-Regular</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
@@ -22,22 +18,24 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fVo-bL-hcX">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <color key="backgroundColor" red="0.56425219774246216" green="0.068674631416797638" blue="0.99608916044235229" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="you are going to be alright" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4VP-b2-BEk">
-                                <rect key="frame" x="46" y="432.5" width="322" height="31.5"/>
-                                <fontDescription key="fontDescription" name="BasisGrotesquePro-Regular" family="Basis Grotesque Pro" pointSize="27"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CoachLogo Copy-1" translatesAutoresizingMaskIntoConstraints="NO" id="owP-if-oeK">
+                                <rect key="frame" x="20" y="384" width="374" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="owP-if-oeK" secondAttribute="height" multiplier="187:64" id="DRe-za-PNk"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="4VP-b2-BEk" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="5TL-0u-uUb"/>
-                            <constraint firstItem="4VP-b2-BEk" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Xna-EB-EYy"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="owP-if-oeK" secondAttribute="trailing" constant="20" id="Leu-MM-kco"/>
                             <constraint firstItem="fVo-bL-hcX" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="aNQ-VZ-hrx"/>
+                            <constraint firstItem="owP-if-oeK" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="au2-Qz-8kB"/>
+                            <constraint firstItem="owP-if-oeK" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="cpi-IW-Uq0"/>
                             <constraint firstItem="fVo-bL-hcX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="oAl-0K-nJc"/>
                             <constraint firstItem="fVo-bL-hcX" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="pTp-YM-hR4"/>
+                            <constraint firstItem="owP-if-oeK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="vNm-rS-WOY"/>
                             <constraint firstAttribute="bottom" secondItem="fVo-bL-hcX" secondAttribute="bottom" id="xyY-E9-2ut"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -48,4 +46,7 @@
             <point key="canvasLocation" x="52.173913043478265" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="CoachLogo Copy-1" width="1962" height="144"/>
+    </resources>
 </document>

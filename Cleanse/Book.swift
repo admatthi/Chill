@@ -8,6 +8,7 @@
 import UIKit
 
 struct Book {
+    
     let bookID: String
     let author: String?
     let description: String?
@@ -76,6 +77,7 @@ struct Book {
         self.duration = json["Duration"] as? Int
         self.amazonURL = json["Amazon"] as? String
         self.original = json["Original"] as? String
+      
 
         self.summary = Summary(withJSON: json["Summary"] as? [String: Any])
 

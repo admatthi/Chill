@@ -11,10 +11,14 @@ import Firebase
 import Kingfisher
 import FirebaseDatabase
 import FirebaseStorage
+import Purchases
+
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var purchases: Purchases?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -22,8 +26,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
         
+        
+        
         let mainStoryboardIpad : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let tabBarBuyer : UITabBarController = mainStoryboardIpad.instantiateViewController(withIdentifier: "HomeTab") as! UITabBarController
+        
+        uid = UIDevice.current.identifierForVendor?.uuidString ?? "x"
+
         
         tabBarBuyer.selectedIndex = 0
         
@@ -32,13 +41,63 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.window?.makeKeyAndVisible()
         
+        
         return true
     }
+    
+    
 
     // MARK: UISceneSession Lifecycle
+    weak var purchasesdelegate: SnippetsPurchasesDelegate?
 
 
 
 
 }
+
+protocol SnippetsPurchasesDelegate: AnyObject {
+
+    func purchaseCompleted(product: String)
+
+}
+
+extension AppDelegate: PurchasesDelegate {
+    func purchases(_ purchases: Purchases, completedTransaction transaction: SKPaymentTransaction, withUpdatedInfo purchaserInfo: PurchaserInfo) {
+
+        self.purchasesdelegate?.purchaseCompleted(product: transaction.payment.productIdentifier)
+
+    ref?.child("Users").child(uid).updateChildValues(["Purchased" : "True"])
+        
+        didpurchase = true
+ 
+
+    }
+
+    func purchases(_ purchases: Purchases, receivedUpdatedPurchaserInfo purchaserInfo: PurchaserInfo) {
+        print(purchaserInfo)
+
+    }
+
+    func purchases(_ purchases: Purchases, failedToUpdatePurchaserInfoWithError error: Error) {
+        print(error)
+
+    }
+
+    func purchases(_ purchases: Purchases, failedTransaction transaction: SKPaymentTransaction, withReason failureReason: Error) {
+        print(failureReason)
+
+    }
+
+    func purchases(_ purchases: Purchases, restoredTransactionsWith purchaserInfo: PurchaserInfo) {
+        
+        ref?.child("Users").child(uid).updateChildValues(["Purchased" : "True"])
+        
+        didpurchase = true
+    }
+
+    func purchases(_ purchases: Purchases, failedToRestoreTransactionsWithError error: Error) {
+        print(error)
+    }
+}
+
 

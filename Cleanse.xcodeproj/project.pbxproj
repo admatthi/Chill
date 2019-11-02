@@ -35,6 +35,7 @@
 		9D7360F3236513DE00DC6ACB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D7360F1236513DE00DC6ACB /* LaunchScreen.storyboard */; };
 		9D7360FE236513DE00DC6ACB /* CleanseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7360FD236513DE00DC6ACB /* CleanseTests.swift */; };
 		9D736109236513DE00DC6ACB /* CleanseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D736108236513DE00DC6ACB /* CleanseUITests.swift */; };
+		9DEF34D5236BBEFB003A3A41 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEF34D4236BBEFB003A3A41 /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,7 +82,7 @@
 		9D328D1D23665959003768CF /* GenreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreCollectionViewCell.swift; sourceTree = "<group>"; };
 		9D328D1F23666B48003768CF /* HomeTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabViewController.swift; sourceTree = "<group>"; };
 		9D328D2123668B57003768CF /* DataModel */ = {isa = PBXFileReference; lastKnownFileType = folder; path = DataModel; sourceTree = "<group>"; };
-		9D7360E3236513DC00DC6ACB /* Me.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Me.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D7360E3236513DC00DC6ACB /* chill.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chill.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D7360E6236513DC00DC6ACB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D7360EC236513DE00DC6ACB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9D7360EF236513DE00DC6ACB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -93,6 +94,7 @@
 		9D736104236513DE00DC6ACB /* CleanseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleanseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D736108236513DE00DC6ACB /* CleanseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanseUITests.swift; sourceTree = "<group>"; };
 		9D73610A236513DE00DC6ACB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9DEF34D4236BBEFB003A3A41 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B9E498B84B2ACBF50B5B77A4 /* Pods-CleanseTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanseTests.release.xcconfig"; path = "Target Support Files/Pods-CleanseTests/Pods-CleanseTests.release.xcconfig"; sourceTree = "<group>"; };
 		BB4E75DE477705A6F1FDAAF7 /* Pods_CleanseTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CleanseTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -153,7 +155,7 @@
 		9D7360E4236513DC00DC6ACB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9D7360E3236513DC00DC6ACB /* Me.app */,
+				9D7360E3236513DC00DC6ACB /* chill.app */,
 				9D7360F9236513DE00DC6ACB /* CleanseTests.xctest */,
 				9D736104236513DE00DC6ACB /* CleanseUITests.xctest */,
 			);
@@ -167,6 +169,7 @@
 				9D328D1F23666B48003768CF /* HomeTabViewController.swift */,
 				9D328D0923651B26003768CF /* Main.storyboard */,
 				9D328D112365F5DC003768CF /* DiscoverViewController.swift */,
+				9DEF34D4236BBEFB003A3A41 /* HomeViewController.swift */,
 				9D328D1B2366593C003768CF /* TitleCollectionViewCell.swift */,
 				9D328D1D23665959003768CF /* GenreCollectionViewCell.swift */,
 				9D328D132365F5F0003768CF /* LikesViewController.swift */,
@@ -246,7 +249,7 @@
 			);
 			name = Cleanse;
 			productName = Cleanse;
-			productReference = 9D7360E3236513DC00DC6ACB /* Me.app */;
+			productReference = 9D7360E3236513DC00DC6ACB /* chill.app */;
 			productType = "com.apple.product-type.application";
 		};
 		9D7360F8236513DE00DC6ACB /* CleanseTests */ = {
@@ -398,6 +401,7 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/Purchases/Purchases.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -408,6 +412,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Purchases.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -472,6 +477,7 @@
 				9D328D1E23665959003768CF /* GenreCollectionViewCell.swift in Sources */,
 				9D0663AF2367B3AA00385DEE /* Genre.swift in Sources */,
 				9D328D122365F5DC003768CF /* DiscoverViewController.swift in Sources */,
+				9DEF34D5236BBEFB003A3A41 /* HomeViewController.swift in Sources */,
 				9D0663B22367B3AA00385DEE /* PaywallConfigurationVariant.swift in Sources */,
 				9D328D1823662923003768CF /* AudioViewController.swift in Sources */,
 				9D328D2023666B48003768CF /* HomeTabViewController.swift in Sources */,
@@ -645,7 +651,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3FFB7E1A40DB188ABB430764 /* Pods-Cleanse.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-4";
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-13";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Cleanse/Preview Content\"";
 				DEVELOPMENT_TEAM = 797Q3HJ5U5;
@@ -657,7 +663,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.aatech.CleanseRecipes;
-				PRODUCT_NAME = Me;
+				PRODUCT_NAME = chill;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -667,7 +673,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6E785B0B06B646A92655E699 /* Pods-Cleanse.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-4";
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-13";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Cleanse/Preview Content\"";
 				DEVELOPMENT_TEAM = 797Q3HJ5U5;
@@ -679,7 +685,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.aatech.CleanseRecipes;
-				PRODUCT_NAME = Me;
+				PRODUCT_NAME = chill;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

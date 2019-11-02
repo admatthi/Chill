@@ -7,9 +7,14 @@
 //
 
 import UIKit
+import Firebase
+import Purchases
 
 class PaywallViewController: UIViewController {
 
+    var purchases = Purchases.configure(withAPIKey: "paCLaBYrGELMfdxuMQqbROxMfgDbcGGn", appUserID: nil)
+
+    
     @IBAction func tapRestore(_ sender: Any) {
         
         
@@ -19,10 +24,44 @@ class PaywallViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func tapContinue(_ sender: Any) {
+        
+        purchases.entitlements { (entitlements, error) in
+            guard let pro = entitlements?["subscriptions"] else { return }
+            guard let monthly = pro.offerings["com.aatech.chill6999"] else { return }
+            guard let product = monthly.activeProduct else { return }
+            
+            self.purchases.makePurchase(product, { (transaction, purchaserInfo, error, cancelled) in
+                if let purchaserInfo = purchaserInfo {
+                    
+                    if purchaserInfo.activeEntitlements.contains("my_entitlement_identifier") {
+                        // Unlock that great "pro" content
+                        
+                        ref?.child("Users").child(uid).updateChildValues(["Purchased" : "True"])
+                        
+                        didpurchase = true
+
+                        self.dismiss(animated: true, completion: nil)
+                    }
+                    
+                }
+            })
+            
+        }
     }
+    
+    @IBAction func tapTerms(_ sender: Any) {
+
+         if let url = NSURL(string: "https://booknotesapp.com/privacy"
+             ) {
+             UIApplication.shared.openURL(url as URL)
+         }
+
+     }
     @IBOutlet weak var tapcontinue: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        ref = Database.database().reference()
 
         tapcontinue.layer.cornerRadius = 5.0
         
