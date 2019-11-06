@@ -12,7 +12,7 @@ import Kingfisher
 import FirebaseDatabase
 import FirebaseStorage
 import Purchases
-
+import FBSDKCoreKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -26,7 +26,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
         
-        
+        AppEvents.activateApp()
+
+        refer = "On Open"
         
         let mainStoryboardIpad : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let tabBarBuyer : UITabBarController = mainStoryboardIpad.instantiateViewController(withIdentifier: "HomeTab") as! UITabBarController
@@ -99,5 +101,7 @@ extension AppDelegate: PurchasesDelegate {
         print(error)
     }
 }
+
+
 
 

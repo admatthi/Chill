@@ -29,6 +29,7 @@
 		9D328D1E23665959003768CF /* GenreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D328D1D23665959003768CF /* GenreCollectionViewCell.swift */; };
 		9D328D2023666B48003768CF /* HomeTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D328D1F23666B48003768CF /* HomeTabViewController.swift */; };
 		9D328D2223668B57003768CF /* DataModel in Resources */ = {isa = PBXBuildFile; fileRef = 9D328D2123668B57003768CF /* DataModel */; };
+		9D503BBC237252AE0070F318 /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D503BBB237252AE0070F318 /* OverviewViewController.swift */; };
 		9D7360E7236513DC00DC6ACB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7360E6236513DC00DC6ACB /* AppDelegate.swift */; };
 		9D7360ED236513DE00DC6ACB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D7360EC236513DE00DC6ACB /* Assets.xcassets */; };
 		9D7360F0236513DE00DC6ACB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D7360EF236513DE00DC6ACB /* Preview Assets.xcassets */; };
@@ -82,6 +83,7 @@
 		9D328D1D23665959003768CF /* GenreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreCollectionViewCell.swift; sourceTree = "<group>"; };
 		9D328D1F23666B48003768CF /* HomeTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabViewController.swift; sourceTree = "<group>"; };
 		9D328D2123668B57003768CF /* DataModel */ = {isa = PBXFileReference; lastKnownFileType = folder; path = DataModel; sourceTree = "<group>"; };
+		9D503BBB237252AE0070F318 /* OverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
 		9D7360E3236513DC00DC6ACB /* chill.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chill.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D7360E6236513DC00DC6ACB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D7360EC236513DE00DC6ACB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				9D328D1F23666B48003768CF /* HomeTabViewController.swift */,
 				9D328D0923651B26003768CF /* Main.storyboard */,
 				9D328D112365F5DC003768CF /* DiscoverViewController.swift */,
+				9D503BBB237252AE0070F318 /* OverviewViewController.swift */,
 				9DEF34D4236BBEFB003A3A41 /* HomeViewController.swift */,
 				9D328D1B2366593C003768CF /* TitleCollectionViewCell.swift */,
 				9D328D1D23665959003768CF /* GenreCollectionViewCell.swift */,
@@ -398,6 +401,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Cleanse/Pods-Cleanse-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
@@ -409,6 +413,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
@@ -485,6 +490,7 @@
 				9D328D1C2366593C003768CF /* TitleCollectionViewCell.swift in Sources */,
 				9D328D16236628E9003768CF /* PaywallViewController.swift in Sources */,
 				9D0663AA2367B22A00385DEE /* Book.swift in Sources */,
+				9D503BBC237252AE0070F318 /* OverviewViewController.swift in Sources */,
 				9D0663B02367B3AA00385DEE /* Summary.swift in Sources */,
 				9D328D1A23662937003768CF /* TextViewController.swift in Sources */,
 			);
@@ -651,8 +657,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3FFB7E1A40DB188ABB430764 /* Pods-Cleanse.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-13";
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-14";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"Cleanse/Preview Content\"";
 				DEVELOPMENT_TEAM = 797Q3HJ5U5;
 				ENABLE_PREVIEWS = YES;
@@ -662,8 +670,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.aatech.CleanseRecipes;
 				PRODUCT_NAME = chill;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -673,8 +683,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6E785B0B06B646A92655E699 /* Pods-Cleanse.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-13";
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-14";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"Cleanse/Preview Content\"";
 				DEVELOPMENT_TEAM = 797Q3HJ5U5;
 				ENABLE_PREVIEWS = YES;
@@ -684,8 +696,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.aatech.CleanseRecipes;
 				PRODUCT_NAME = chill;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

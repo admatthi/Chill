@@ -9,11 +9,13 @@
 import UIKit
 import Firebase
 import Purchases
+import FBSDKCoreKit
+var refer = String()
 
 class PaywallViewController: UIViewController {
-
+    
     var purchases = Purchases.configure(withAPIKey: "paCLaBYrGELMfdxuMQqbROxMfgDbcGGn", appUserID: nil)
-
+    
     
     @IBAction func tapRestore(_ sender: Any) {
         
@@ -23,11 +25,14 @@ class PaywallViewController: UIViewController {
         
         self.dismiss(animated: true, completion: nil)
     }
+    @IBOutlet weak var backimage: UIImageView!
     @IBAction func tapContinue(_ sender: Any) {
+        
+        logTapSubscribeEvent(referrer : refer)
         
         purchases.entitlements { (entitlements, error) in
             guard let pro = entitlements?["subscriptions"] else { return }
-            guard let monthly = pro.offerings["com.aatech.chill6999"] else { return }
+            guard let monthly = pro.offerings["Yearly"] else { return }
             guard let product = monthly.activeProduct else { return }
             
             self.purchases.makePurchase(product, { (transaction, purchaserInfo, error, cancelled) in
@@ -36,11 +41,23 @@ class PaywallViewController: UIViewController {
                     if purchaserInfo.activeEntitlements.contains("my_entitlement_identifier") {
                         // Unlock that great "pro" content
                         
+                        self.logPurchaseSuccessEvent(referrer : refer)
+                    ref?.child("Users").child(uid).updateChildValues(["Purchased" : "True"])
+                        
+                        didpurchase = true
+                        
+                        self.dismiss(animated: true, completion: nil)
+                    } else {
+                        
+                        
+                        self.logPurchaseSuccessEvent(referrer : refer)
+                        
                         ref?.child("Users").child(uid).updateChildValues(["Purchased" : "True"])
                         
                         didpurchase = true
-
                         self.dismiss(animated: true, completion: nil)
+                        
+                        
                     }
                     
                 }
@@ -50,34 +67,54 @@ class PaywallViewController: UIViewController {
     }
     
     @IBAction func tapTerms(_ sender: Any) {
-
-         if let url = NSURL(string: "https://booknotesapp.com/privacy"
-             ) {
-             UIApplication.shared.openURL(url as URL)
-         }
-
-     }
+        
+        if let url = NSURL(string: "https://getchillapp.weebly.com/privacy"
+            ) {
+            UIApplication.shared.openURL(url as URL)
+        }
+        
+    }
     @IBOutlet weak var tapcontinue: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         ref = Database.database().reference()
-
+        
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = backimage.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+       backimage.addSubview(blurEffectView)
+        
         tapcontinue.layer.cornerRadius = 5.0
         
         tapcontinue.clipsToBounds = true
+        
+        logPaywallShownEvent(referrer : refer)
         // Do any additional setup after loading the view.
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
+    func logPaywallShownEvent(referrer : String) {
+        AppEvents.logEvent(AppEvents.Name(rawValue: "paywall shown"), parameters: ["referrer" : referrer])
     }
-    */
-
+    
+    func logTapSubscribeEvent(referrer : String) {
+        AppEvents.logEvent(AppEvents.Name(rawValue: "tap subscribe"), parameters: ["referrer" : referrer])
+    }
+    
+    func logPurchaseSuccessEvent(referrer : String) {
+        AppEvents.logEvent(AppEvents.Name(rawValue: "purchase success"), parameters: ["referrer" : referrer])
+    }
+    
 }

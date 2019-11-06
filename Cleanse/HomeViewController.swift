@@ -69,7 +69,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
 
                    let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
                    layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 10, right: 0)
-                   layout.itemSize = CGSize(width: screenWidth-20, height: 105)
+                   layout.itemSize = CGSize(width: screenWidth-30, height: 105)
                    layout.minimumInteritemSpacing = 0
                    layout.minimumLineSpacing = 0
 
@@ -184,6 +184,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
 
            func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
+                refer = "On Tap Daily"
+
                let generator = UIImpactFeedbackGenerator(style: .heavy)
                generator.impactOccurred()
       
@@ -200,16 +202,29 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                    
                    
                    
-                   bookindex = indexPath.row
-                   selectedauthor = book?.author ?? ""
-                   selectedtitle = book?.name ?? ""
-                   selectedurl = book?.audioURL ?? ""
-                   selectedbookid = book?.bookID ?? ""
-                   selectedgenre = book?.genre ?? ""
-                   selectedamazonurl = book?.amazonURL ?? ""
-                   selecteddescription = book?.description ?? ""
-                   selectedduration = book?.duration ?? 15
-                   selectedheadline = book?.headline1 ?? ""
+            headlines.removeAll()
+                                  
+                                  bookindex = indexPath.row
+                                  selectedauthor = book?.author ?? ""
+                                  selectedtitle = book?.name ?? ""
+                                  selectedurl = book?.audioURL ?? ""
+                                  selectedbookid = book?.bookID ?? ""
+                                  selectedgenre = book?.genre ?? ""
+                                  selectedamazonurl = book?.amazonURL ?? ""
+                                  selecteddescription = book?.description ?? ""
+                                  selectedduration = book?.duration ?? 15
+                                  selectedheadline = book?.headline1 ?? ""
+                                  
+                                  headlines.append(book?.headline1 ?? "x")
+                                  headlines.append(book?.headline2 ?? "x")
+                                  headlines.append(book?.headline3 ?? "x")
+                                  headlines.append(book?.headline4 ?? "x")
+                                  headlines.append(book?.headline5 ?? "x")
+                                  headlines.append(book?.headline6 ?? "x")
+                                  headlines.append(book?.headline7 ?? "x")
+                                  headlines.append(book?.headline8 ?? "x")
+                                  
+                                  headlines = headlines.filter{$0 != "x"}
                    
                         
                    let alert = UIAlertController(title: "What would you like to do?", message: "", preferredStyle: .alert)

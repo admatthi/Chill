@@ -22,7 +22,7 @@ var musictimer : Timer?
 var updater : CADisplayLink?
 var player : AVPlayer?
 var referrer = String()
-
+var selectedauthorimage = String()
 var uid = String()
 var ref : DatabaseReference?
 
@@ -205,7 +205,8 @@ class DiscoverViewController: UIViewController, UICollectionViewDelegate, UIColl
 
         var mycolors = [UIColor]()
 
-        override func viewDidLoad() {
+    @IBOutlet weak var backimage: UIImageView!
+    override func viewDidLoad() {
             super.viewDidLoad()
 
             ref = Database.database().reference()
@@ -222,7 +223,11 @@ class DiscoverViewController: UIViewController, UICollectionViewDelegate, UIColl
             genres.append("Relationships")
            
 
-
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = backimage.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+       backimage.addSubview(blurEffectView)
 
             NotificationCenter.default.addObserver(self, selector: #selector(loadList(notification:)), name: NSNotification.Name(rawValue: "load"), object: nil)
 
@@ -266,7 +271,7 @@ class DiscoverViewController: UIViewController, UICollectionViewDelegate, UIColl
 
             let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
             layout.sectionInset = UIEdgeInsets(top: 5, left: 0, bottom: 10, right: 0)
-            layout.itemSize = CGSize(width: screenWidth/2.3, height: screenWidth/1.6)
+            layout.itemSize = CGSize(width: screenWidth/2.1, height: screenWidth/2)
             layout.minimumInteritemSpacing = 0
             layout.minimumLineSpacing = 0
 
@@ -497,6 +502,8 @@ class DiscoverViewController: UIViewController, UICollectionViewDelegate, UIColl
 
         func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
+            refer = "On Tap Discover"
+
             let generator = UIImpactFeedbackGenerator(style: .heavy)
             generator.impactOccurred()
             self.view.endEditing(true)
@@ -535,7 +542,7 @@ class DiscoverViewController: UIViewController, UICollectionViewDelegate, UIColl
                 headlines.removeAll()
                 
                 bookindex = indexPath.row
-                selectedauthor = book?.author ?? ""
+                selectedauthorname = book?.author ?? ""
                 selectedtitle = book?.name ?? ""
                 selectedurl = book?.audioURL ?? ""
                 selectedbookid = book?.bookID ?? ""
@@ -544,7 +551,11 @@ class DiscoverViewController: UIViewController, UICollectionViewDelegate, UIColl
                 selecteddescription = book?.description ?? ""
                 selectedduration = book?.duration ?? 15
                 selectedheadline = book?.headline1 ?? ""
-                
+                selectedprofession = book?.profession ?? ""
+                selectedauthorimage = book?.authorImage ?? ""
+                selectedbackground = book?.imageURL ?? ""
+
+                    
                 headlines.append(book?.headline1 ?? "x")
                 headlines.append(book?.headline2 ?? "x")
                 headlines.append(book?.headline3 ?? "x")
@@ -639,6 +650,9 @@ class DiscoverViewController: UIViewController, UICollectionViewDelegate, UIColl
 
                 cell.selectedimage.layer.cornerRadius = 5.0
                 cell.selectedimage.layer.masksToBounds = true
+                
+             
+                
 
                 genreCollectionView.alpha = 1
 
@@ -803,22 +817,29 @@ class DiscoverViewController: UIViewController, UICollectionViewDelegate, UIColl
 
                 }
 
-                cell.tapup.tag = indexPath.row
-
-                cell.tapup.addTarget(self, action: #selector(DiscoverViewController.tapWishlist), for: .touchUpInside)
+//                cell.tapup.tag = indexPath.row
+//
+//                cell.tapup.addTarget(self, action: #selector(DiscoverViewController.tapWishlist), for: .touchUpInside)
 
                 if let imageURLString = book?.imageURL, let imageUrl = URL(string: imageURLString) {
 
                     cell.titleImage.kf.setImage(with: imageUrl)
-                    
-                    
-                    var randomint = Int.random(in: 100..<1000)
-                    
-                    cell.viewslabel.text = "\(randomint) views"
+
+
 
                     cell.titleImage.layer.cornerRadius = 5.0
                     cell.titleImage.clipsToBounds = true
                     cell.titleImage.alpha = 1
+
+                  
+                    
+                    
+//                    let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
+//                    let blurEffectView = UIVisualEffectView(effect: blurEffect)
+//                    blurEffectView.frame = cell.titleback.bounds
+//                    blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+//                    cell.titleback.addSubview(blurEffectView)
+
 
                 }
 
@@ -826,11 +847,9 @@ class DiscoverViewController: UIViewController, UICollectionViewDelegate, UIColl
 
                 if wishlistids.contains(book!.bookID) {
 
-                    cell.tapup.setBackgroundImage(UIImage(named: "BookMarkFullWhite"), for: .normal)
 
                 } else {
 
-                    cell.tapup.setBackgroundImage(UIImage(named: "BookMark"), for: .normal)
                 }
 
                 cell.layer.cornerRadius = 5.0

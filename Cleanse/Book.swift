@@ -41,6 +41,8 @@ struct Book {
     let duration: Int?
     let original: String?
     let amazonURL: String?
+    let profession: String?
+    let authorImage: String?
 
     let summary: Summary
 
@@ -77,7 +79,10 @@ struct Book {
         self.duration = json["Duration"] as? Int
         self.amazonURL = json["Amazon"] as? String
         self.original = json["Original"] as? String
-      
+        self.profession = json["Profession"] as? String
+        self.authorImage = json["Author Image"] as? String
+
+
 
         self.summary = Summary(withJSON: json["Summary"] as? [String: Any])
 
