@@ -47,6 +47,11 @@ class DiscoverViewController: UIViewController, UICollectionViewDelegate, UIColl
 
             }
         }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        textone == ""
+    }
 
         @IBOutlet var searchField: UITextField!
 
@@ -155,13 +160,7 @@ class DiscoverViewController: UIViewController, UICollectionViewDelegate, UIColl
 
         var intdayofweek = Int()
 
-        override func viewDidAppear(_ animated: Bool) {
-
-            titleCollectionView.reloadData()
-
-            titleCollectionView.isUserInteractionEnabled = true
-
-        }
+       
 
         @IBOutlet var darklabel: UILabel!
 
@@ -217,10 +216,14 @@ class DiscoverViewController: UIViewController, UICollectionViewDelegate, UIColl
             genres.removeAll()
 
             genres.append("All")
+            genres.append("Sleep")
+            genres.append("Morning")
             genres.append("Anxiety")
-            genres.append("Depression")
             genres.append("Stress")
+            genres.append("Depression")
+            genres.append("Focus")
             genres.append("Relationships")
+            genres.append("Goals")
            
 
         let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
@@ -271,7 +274,7 @@ class DiscoverViewController: UIViewController, UICollectionViewDelegate, UIColl
 
             let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
             layout.sectionInset = UIEdgeInsets(top: 5, left: 0, bottom: 10, right: 0)
-            layout.itemSize = CGSize(width: screenWidth/2.1, height: screenWidth/2)
+        layout.itemSize = CGSize(width: screenWidth/2.3, height: screenWidth/1.7)
             layout.minimumInteritemSpacing = 0
             layout.minimumLineSpacing = 0
 
@@ -532,9 +535,6 @@ class DiscoverViewController: UIViewController, UICollectionViewDelegate, UIColl
                 genreCollectionView.reloadData()
 
             } else {
-                
-                if didpurchase {
-
 
                 let book = self.book(atIndexPath: indexPath)
                 
@@ -600,11 +600,7 @@ class DiscoverViewController: UIViewController, UICollectionViewDelegate, UIColl
                 
                     self.performSegue(withIdentifier: "HomeToRead", sender: self)
 
-                } else {
-                    
-                    self.performSegue(withIdentifier: "CatalagToSale", sender: self)
-                }
-
+             
             }
 
 
@@ -781,6 +777,23 @@ class DiscoverViewController: UIViewController, UICollectionViewDelegate, UIColl
                     }
 
                 }
+                
+                if selectedindex == 8 {
+                    
+                    if indexPath.row == 8 {
+                        
+                        cell.titlelabel.alpha = 1
+                        cell.selectedimage.alpha = 1
+                        
+                    } else {
+                        
+                        cell.titlelabel.alpha = 0.25
+                        cell.selectedimage.alpha = 0
+                        
+                    }
+                    
+                }
+
 
                 if selectedindex == 1000 {
 

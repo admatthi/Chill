@@ -43,6 +43,9 @@ struct Book {
     let amazonURL: String?
     let profession: String?
     let authorImage: String?
+    let text1: String?
+    let text2: String?
+    let text3: String?
 
     let summary: Summary
 
@@ -81,6 +84,9 @@ struct Book {
         self.original = json["Original"] as? String
         self.profession = json["Profession"] as? String
         self.authorImage = json["Author Image"] as? String
+        self.text1 = json["Text0"] as? String
+        self.text2 = json["Text1"] as? String
+        self.text3 = json["Text2"] as? String
 
 
 

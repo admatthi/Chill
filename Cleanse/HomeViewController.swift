@@ -182,96 +182,102 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                // Dispose of any resources that can be recreated.
            }
 
-           func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
-                refer = "On Tap Daily"
-
-               let generator = UIImpactFeedbackGenerator(style: .heavy)
-               generator.impactOccurred()
-      
-
-               if collectionView.tag == 1 {
-
-     
-
-               } else {
-
-                if didpurchase {
-
-                   let book = self.book(atIndexPath: indexPath)
-                   
-                   
-                   
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        refer = "On Tap Daily"
+        
+        let generator = UIImpactFeedbackGenerator(style: .heavy)
+        generator.impactOccurred()
+        
+        
+        if collectionView.tag == 1 {
+            
+            
+            
+        } else {
+            
+            if didpurchase {
+            
+            let book = self.book(atIndexPath: indexPath)
+            
+            
+            
             headlines.removeAll()
-                                  
-                                  bookindex = indexPath.row
-                                  selectedauthor = book?.author ?? ""
-                                  selectedtitle = book?.name ?? ""
-                                  selectedurl = book?.audioURL ?? ""
-                                  selectedbookid = book?.bookID ?? ""
-                                  selectedgenre = book?.genre ?? ""
-                                  selectedamazonurl = book?.amazonURL ?? ""
-                                  selecteddescription = book?.description ?? ""
-                                  selectedduration = book?.duration ?? 15
-                                  selectedheadline = book?.headline1 ?? ""
-                                  
-                                  headlines.append(book?.headline1 ?? "x")
-                                  headlines.append(book?.headline2 ?? "x")
-                                  headlines.append(book?.headline3 ?? "x")
-                                  headlines.append(book?.headline4 ?? "x")
-                                  headlines.append(book?.headline5 ?? "x")
-                                  headlines.append(book?.headline6 ?? "x")
-                                  headlines.append(book?.headline7 ?? "x")
-                                  headlines.append(book?.headline8 ?? "x")
-                                  
-                                  headlines = headlines.filter{$0 != "x"}
-                   
-                        
-                   let alert = UIAlertController(title: "What would you like to do?", message: "", preferredStyle: .alert)
-                   alert.addAction(UIAlertAction(title: "Read", style: .default, handler: { action in
-                         switch action.style{
-                         case .default:
-                               print("default")
-
-                           
-                         case .cancel:
-                               print("cancel")
-
-                         case .destructive:
-                               print("destructive")
-
-
-                   }}))
-                   alert.addAction(UIAlertAction(title: "Listen", style: .default, handler: { action in
-                                  switch action.style{
-                                  case .default:
-                                        print("default")
-
-                                        self.performSegue(withIdentifier: "HomeToListen", sender: self)
-                                  case .cancel:
-                                        print("cancel")
-
-                                  case .destructive:
-                                        print("destructive")
-
-
-                            }}))
-                   
-                   
-                    self.performSegue(withIdentifier: "DailyToRead", sender: self)
-
-                   } else {
-                       
-                       self.performSegue(withIdentifier: "HomeToSale", sender: self)
-
-                   }
-
-
-
+            
+            bookindex = indexPath.row
+            selectedauthorname = book?.author ?? ""
+            selectedtitle = book?.name ?? ""
+            selectedurl = book?.audioURL ?? ""
+            selectedbookid = book?.bookID ?? ""
+            selectedgenre = book?.genre ?? ""
+            selectedamazonurl = book?.amazonURL ?? ""
+            selecteddescription = book?.description ?? ""
+            selectedduration = book?.duration ?? 15
+            selectedheadline = book?.headline1 ?? ""
+            selectedprofession = book?.profession ?? ""
+            selectedauthorimage = book?.authorImage ?? ""
+            selectedbackground = book?.imageURL ?? ""
+            
+            headlines.append(book?.headline1 ?? "x")
+            headlines.append(book?.headline2 ?? "x")
+            headlines.append(book?.headline3 ?? "x")
+            headlines.append(book?.headline4 ?? "x")
+            headlines.append(book?.headline5 ?? "x")
+            headlines.append(book?.headline6 ?? "x")
+            headlines.append(book?.headline7 ?? "x")
+            headlines.append(book?.headline8 ?? "x")
+            
+            headlines = headlines.filter{$0 != "x"}
+            
+            
+            let alert = UIAlertController(title: "What would you like to do?", message: "", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Read", style: .default, handler: { action in
+                switch action.style{
+                case .default:
+                    print("default")
+                    
+                    
+                case .cancel:
+                    print("cancel")
+                    
+                case .destructive:
+                    print("destructive")
+                    
+                    
+                }}))
+            alert.addAction(UIAlertAction(title: "Listen", style: .default, handler: { action in
+                switch action.style{
+                case .default:
+                    print("default")
+                    
+                    self.performSegue(withIdentifier: "HomeToListen", sender: self)
+                case .cancel:
+                    print("cancel")
+                    
+                case .destructive:
+                    print("destructive")
+                    
+                    
+                }}))
+            
+            
+            self.performSegue(withIdentifier: "DailyToRead", sender: self)
+            
+            
+            } else {
+                
+                self.performSegue(withIdentifier: "HomeToSale", sender: self)
             }
-           }
+            
+            
+            
+        }
+    }
 
-
+    override func viewDidAppear(_ animated: Bool) {
+          
+          textone == ""
+      }
 
            func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 

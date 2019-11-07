@@ -15,6 +15,7 @@
 		9D0663B02367B3AA00385DEE /* Summary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0663AE2367B3A900385DEE /* Summary.swift */; };
 		9D0663B12367B3AA00385DEE /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0663AB2367B3A900385DEE /* Audio.swift */; };
 		9D0663B22367B3AA00385DEE /* PaywallConfigurationVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0663AD2367B3A900385DEE /* PaywallConfigurationVariant.swift */; };
+		9D2D42562373360A003E21C1 /* EntriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2D42552373360A003E21C1 /* EntriesViewController.swift */; };
 		9D328D0823651A92003768CF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9D328D0723651A92003768CF /* GoogleService-Info.plist */; };
 		9D328D0A23651B26003768CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D328D0923651B26003768CF /* Main.storyboard */; };
 		9D328D0E2365EF72003768CF /* BasisGrotesquePro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D328D0B2365EF72003768CF /* BasisGrotesquePro-Regular.ttf */; };
@@ -69,6 +70,7 @@
 		9D0663AC2367B3A900385DEE /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
 		9D0663AD2367B3A900385DEE /* PaywallConfigurationVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallConfigurationVariant.swift; sourceTree = "<group>"; };
 		9D0663AE2367B3A900385DEE /* Summary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Summary.swift; sourceTree = "<group>"; };
+		9D2D42552373360A003E21C1 /* EntriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntriesViewController.swift; sourceTree = "<group>"; };
 		9D328D0723651A92003768CF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9D328D0923651B26003768CF /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		9D328D0B2365EF72003768CF /* BasisGrotesquePro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BasisGrotesquePro-Regular.ttf"; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				9D328D1F23666B48003768CF /* HomeTabViewController.swift */,
 				9D328D0923651B26003768CF /* Main.storyboard */,
 				9D328D112365F5DC003768CF /* DiscoverViewController.swift */,
+				9D2D42552373360A003E21C1 /* EntriesViewController.swift */,
 				9D503BBB237252AE0070F318 /* OverviewViewController.swift */,
 				9DEF34D4236BBEFB003A3A41 /* HomeViewController.swift */,
 				9D328D1B2366593C003768CF /* TitleCollectionViewCell.swift */,
@@ -482,6 +485,7 @@
 				9D328D1E23665959003768CF /* GenreCollectionViewCell.swift in Sources */,
 				9D0663AF2367B3AA00385DEE /* Genre.swift in Sources */,
 				9D328D122365F5DC003768CF /* DiscoverViewController.swift in Sources */,
+				9D2D42562373360A003E21C1 /* EntriesViewController.swift in Sources */,
 				9DEF34D5236BBEFB003A3A41 /* HomeViewController.swift in Sources */,
 				9D0663B22367B3AA00385DEE /* PaywallConfigurationVariant.swift in Sources */,
 				9D328D1823662923003768CF /* AudioViewController.swift in Sources */,
@@ -660,7 +664,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-14";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Cleanse/Preview Content\"";
 				DEVELOPMENT_TEAM = 797Q3HJ5U5;
 				ENABLE_PREVIEWS = YES;
@@ -670,7 +674,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.aatech.CleanseRecipes;
 				PRODUCT_NAME = chill;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -686,7 +690,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-14";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Cleanse/Preview Content\"";
 				DEVELOPMENT_TEAM = 797Q3HJ5U5;
 				ENABLE_PREVIEWS = YES;
@@ -696,7 +700,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.aatech.CleanseRecipes;
 				PRODUCT_NAME = chill;
 				PROVISIONING_PROFILE_SPECIFIER = "";

@@ -101,7 +101,10 @@ class TextViewController: UIViewController, UITextViewDelegate {
          return true
      }
     
-  
+    @IBOutlet weak var authorftile: UILabel!
+    @IBOutlet weak var titleoftile: UILabel!
+    
+    @IBOutlet weak var backimage: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -123,6 +126,8 @@ class TextViewController: UIViewController, UITextViewDelegate {
         tapsave.layer.cornerRadius = 25.0
         tapsave.clipsToBounds = true
         
+        
+        
         if headlines.count > 1 {
             
             progressView.alpha = 1
@@ -131,13 +136,33 @@ class TextViewController: UIViewController, UITextViewDelegate {
             
         } else {
             
-       
+            
             
             progressView.alpha = 0
             text.text = selectedheadline
+            
+        }
+        
+        let imageURLString = selectedbackground
+        
+        let  imageUrl = URL(string: imageURLString)
+        
+        backimage.kf.setImage(with: imageUrl)
+        backimage.layer.cornerRadius = backimage.frame.size.width / 2
+        backimage.clipsToBounds = true
+        authorftile.text = selectedauthorname
+        titleoftile.text = selectedtitle
+        
+        if textone != "" {
+            
+            textView.text = textone
+        } else {
+            
+            textView.text = "Write here..."
 
         }
-
+        
+        
         // Do any additional setup after loading the view.
     }
     
@@ -172,6 +197,42 @@ class TextViewController: UIViewController, UITextViewDelegate {
         }
 
         if counter < headlines.count {
+            
+            if counter == 0 {
+                
+                if textone != "" {
+                    
+                    textView.text = textone
+                } else {
+                    
+                    textView.text = "Write here..."
+
+                }
+            }
+            
+            if counter == 1 {
+                
+                if texttwo != "" {
+                    
+                    textView.text = texttwo
+                } else {
+                    
+                    textView.text = "Write here..."
+
+                }
+            }
+            
+            if counter == 2 {
+                
+                if textthree != "" {
+                    
+                    textView.text = textthree
+                } else {
+                    
+                    textView.text = "Write here..."
+
+                }
+            }
 
         text.text = headlines[counter]
 
@@ -218,7 +279,9 @@ class TextViewController: UIViewController, UITextViewDelegate {
         
         if textView.text != "" {
         
-            ref?.child("Entries").child(uid).child(selectedbookid).child("\(counter)").childByAutoId().updateChildValues(["Text" : textView.text!, "Date" : dateformat])
+            ref?.child("Entries").child(uid).child(selectedbookid).updateChildValues(["Author" : selectedauthorname, "Name" : selectedtitle, "Headline1" : headlines[0], "Headline2" : headlines[1], "Headline3" : headlines[2], "Author Image" : selectedauthorimage, "Image" : selectedbackground, "Text\(counter)" : textView.text!, "Date" : dateformat])
+            
+    
             
             nextcount()
 
