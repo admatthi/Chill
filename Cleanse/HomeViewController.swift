@@ -274,8 +274,30 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
     }
 
+    @IBAction func tapDiscount(_ sender: Any) {
+        
+        let alert = UIAlertController(title: "Please enter your discount code", message: "", preferredStyle: .alert)
+                  alert.addAction(UIAlertAction(title: "Submit", style: .default, handler: { action in
+                      switch action.style{
+                      case .default:
+                          print("default")
+                          
+                          
+                      case .cancel:
+                          print("cancel")
+                          
+                      case .destructive:
+                          print("destructive")
+                          
+                          
+                      }}))
+        
+        
+        
+    }
     override func viewDidAppear(_ animated: Bool) {
-          
+        
+        
           textone == ""
       }
 
@@ -439,4 +461,5 @@ var didpurchase = Bool()
                return self.book(atIndex: indexPath.row)
            }
        }
+
 

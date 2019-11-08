@@ -153,7 +153,6 @@ class DiscoverViewController: UIViewController, UICollectionViewDelegate, UIColl
 
             swipecounter -= 1
             selectedindex = swipecounter
-
             genreCollectionView.reloadData()
 
         }
@@ -934,7 +933,7 @@ class DiscoverViewController: UIViewController, UICollectionViewDelegate, UIColl
          // Pass the selected object to the new view controller.
          }
          */
-     
+
         
 
     

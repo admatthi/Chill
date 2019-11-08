@@ -279,7 +279,24 @@ class TextViewController: UIViewController, UITextViewDelegate {
         
         if textView.text != "" {
         
-            ref?.child("Entries").child(uid).child(selectedbookid).updateChildValues(["Author" : selectedauthorname, "Name" : selectedtitle, "Headline1" : headlines[0], "Headline2" : headlines[1], "Headline3" : headlines[2], "Author Image" : selectedauthorimage, "Image" : selectedbackground, "Text\(counter)" : textView.text!, "Date" : dateformat])
+            if headlines.count == 1 {
+            ref?.child("Entries").child(uid).child(selectedbookid).updateChildValues(["Author" : selectedauthorname, "Name" : selectedtitle, "Headline1" : headlines[0], "Author Image" : selectedauthorimage, "Image" : selectedbackground, "Text\(counter)" : textView.text!, "Date" : dateformat])
+                
+            }
+            
+            if headlines.count == 2 {
+             ref?.child("Entries").child(uid).child(selectedbookid).updateChildValues(["Author" : selectedauthorname, "Name" : selectedtitle, "Headline1" : headlines[0], "Headline2" : headlines[1], "Author Image" : selectedauthorimage, "Image" : selectedbackground, "Text\(counter)" : textView.text!, "Date" : dateformat])
+                 
+             }
+             
+            
+            if headlines.count == 3 {
+             ref?.child("Entries").child(uid).child(selectedbookid).updateChildValues(["Author" : selectedauthorname, "Name" : selectedtitle, "Headline1" : headlines[0], "Headline2" : headlines[1], "Headline3" : headlines[2], "Author Image" : selectedauthorimage, "Image" : selectedbackground, "Text\(counter)" : textView.text!, "Date" : dateformat])
+                 
+             }
+             
+            
+            
             
     
             
