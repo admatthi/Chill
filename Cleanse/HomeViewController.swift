@@ -96,7 +96,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                counter = 0
 
 
-                queryforinfo()
+                
                // Do any additional setup after loading the view.
            }
 
@@ -266,7 +266,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             
             } else {
                 
-                self.performSegue(withIdentifier: "HomeToSale", sender: self)
+                self.performSegue(withIdentifier: "HomeToSale2", sender: self)
             }
             
             
@@ -277,10 +277,27 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     @IBAction func tapDiscount(_ sender: Any) {
         
         let alert = UIAlertController(title: "Please enter your discount code", message: "", preferredStyle: .alert)
+        
+        alert.addTextField(configurationHandler: configurationTextField)
+
                   alert.addAction(UIAlertAction(title: "Submit", style: .default, handler: { action in
                       switch action.style{
                       case .default:
                           print("default")
+                        
+                        let textField = alert.textFields![0] // Force unwrapping because we know it exists.
+                        
+                        if textField.text != "" {
+                            
+                            if actualdiscount == textField.text! {
+                                
+                                didpurchase = true
+                                
+                                ref?.child("Users").child(uid).updateChildValues(["Purchased" : "True"])
+                                
+                            }
+                            
+                        }
                           
                           
                       case .cancel:
@@ -292,9 +309,19 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                           
                       }}))
         
-        
+        self.present(alert, animated: true, completion: nil)
+
         
     }
+    
+    func configurationTextField(textField: UITextField!){
+           textField?.placeholder = "Promo Code"
+           
+           
+           
+           
+       }
+    
     override func viewDidAppear(_ animated: Bool) {
         
         
@@ -352,7 +379,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                    if let imageURLString = book?.imageURL, let imageUrl = URL(string: imageURLString) {
 
                     
-                    if name == "Morning Chill"{
+                    if name == "Morning Session"{
                         
                         cell.titleImage.image = UIImage(named: "Sun")
 
@@ -412,34 +439,13 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             }
             */
         
-    func queryforinfo() {
-                
-        ref?.child("Users").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
-            
-            let value = snapshot.value as? NSDictionary
-            
-            if let purchased = value?["Purchased"] as? String {
-                
-                if purchased == "True" {
-                    
-                    didpurchase = true
-                    
-                } else {
-                                 
-                    didpurchase = false
-                    self.performSegue(withIdentifier: "HomeToSale", sender: self)
-                    
-                }
-                
-            } else {
-                
-                didpurchase = false
-              self.performSegue(withIdentifier: "HomeToSale", sender: self)
-            }
-            
-        })
+    @IBAction func tapShowDiscount(_ sender: Any) {
+        
         
     }
+
+    
+    
            
 
        
@@ -463,3 +469,4 @@ var didpurchase = Bool()
        }
 
 
+var slimeybool = Bool()

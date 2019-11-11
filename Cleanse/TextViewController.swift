@@ -58,8 +58,8 @@ class TextViewController: UIViewController, UITextViewDelegate {
     
     func nextcount() {
         
-        textView.text = "Write here..."
-          textView.textColor = UIColor.lightGray
+        textView.text = ""
+          textView.textColor = UIColor.black
         
         if counter > headlines.count-2 {
             
@@ -83,23 +83,23 @@ class TextViewController: UIViewController, UITextViewDelegate {
         }
         
     }
-    
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-         if(text == "\n") {
-             textView.resignFirstResponder()
-             return false
-         }
-         return true
-     }
+//
+//    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+//         if(text == "\n") {
+//             textView.resignFirstResponder()
+//             return false
+//         }
+//         return true
+//     }
 
      /* Older versions of Swift */
-     func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
-         if(text == "\n") {
-             textView.resignFirstResponder()
-             return false
-         }
-         return true
-     }
+//     func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+//         if(text == "\n") {
+//             textView.resignFirstResponder()
+//             return false
+//         }
+//         return true
+//     }
     
     @IBOutlet weak var authorftile: UILabel!
     @IBOutlet weak var titleoftile: UILabel!
@@ -110,20 +110,25 @@ class TextViewController: UIViewController, UITextViewDelegate {
         
         counter = 0
         arrayCount = headlines.count
-        textView.returnKeyType = UIReturnKeyType.done
+//        textView.returnKeyType = UIReturnKeyType.done
         
         progressView.layer.cornerRadius = 5.0
         progressView.clipsToBounds = true
+        
+        textView.layer.cornerRadius = 5.0
+        textView.clipsToBounds = true
         
         var transform : CGAffineTransform = CGAffineTransform(scaleX: 1.0, y: 3.0)
         progressView.transform = transform
         
         textView.delegate = self
         
-        textView.text = "Write here..."
-        textView.textColor = UIColor.lightGray
+        textView.text = ""
+        textView.textColor = UIColor.black
         
-        tapsave.layer.cornerRadius = 25.0
+        textView.becomeFirstResponder()
+        
+        tapsave.layer.cornerRadius = 5.0
         tapsave.clipsToBounds = true
         
         
@@ -158,7 +163,7 @@ class TextViewController: UIViewController, UITextViewDelegate {
             textView.text = textone
         } else {
             
-            textView.text = "Write here..."
+            textView.text = ""
 
         }
         
@@ -185,6 +190,13 @@ class TextViewController: UIViewController, UITextViewDelegate {
 
      }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        
+            textone = ""
+            texttwo = ""
+            textthree = ""
+    }
+    
     func showpropersummaries() {
 
         if counter == 0 {
@@ -205,7 +217,7 @@ class TextViewController: UIViewController, UITextViewDelegate {
                     textView.text = textone
                 } else {
                     
-                    textView.text = "Write here..."
+                    textView.text = ""
 
                 }
             }
@@ -217,7 +229,7 @@ class TextViewController: UIViewController, UITextViewDelegate {
                     textView.text = texttwo
                 } else {
                     
-                    textView.text = "Write here..."
+                    textView.text = ""
 
                 }
             }
@@ -229,7 +241,7 @@ class TextViewController: UIViewController, UITextViewDelegate {
                     textView.text = textthree
                 } else {
                     
-                    textView.text = "Write here..."
+                    textView.text = ""
 
                 }
             }
@@ -299,6 +311,10 @@ class TextViewController: UIViewController, UITextViewDelegate {
             
             
     
+            
+            nextcount()
+
+        } else {
             
             nextcount()
 

@@ -14,6 +14,9 @@ var refer = String()
 
 class PaywallViewController: UIViewController {
     
+    @IBOutlet weak var termstext: UILabel!
+    @IBOutlet weak var disclaimertext: UIButton!
+    @IBOutlet weak var leadingtext: UILabel!
     var purchases = Purchases.configure(withAPIKey: "paCLaBYrGELMfdxuMQqbROxMfgDbcGGn", appUserID: nil)
     
     
@@ -74,6 +77,8 @@ class PaywallViewController: UIViewController {
         }
         
     }
+    
+    
     @IBOutlet weak var tapcontinue: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,13 +89,28 @@ class PaywallViewController: UIViewController {
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = backimage.bounds
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-       backimage.addSubview(blurEffectView)
+        backimage.addSubview(blurEffectView)
         
         tapcontinue.layer.cornerRadius = 5.0
         
         tapcontinue.clipsToBounds = true
         
         logPaywallShownEvent(referrer : refer)
+        
+        if slimeybool {
+            
+            termstext.alpha = 0
+            leadingtext.alpha = 0
+            disclaimertext.alpha = 0
+            tapcontinue.setTitle("Try Free", for: .normal)
+            
+        } else {
+            
+            termstext.alpha = 1
+            leadingtext.alpha = 1
+            disclaimertext.alpha = 1
+            tapcontinue.setTitle("Continue", for: .normal)
+        }
         // Do any additional setup after loading the view.
     }
     

@@ -14,6 +14,10 @@ import FirebaseStorage
 import Purchases
 import FBSDKCoreKit
 
+var entereddiscount = String()
+
+var actualdiscount = String()
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -36,15 +40,45 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         uid = UIDevice.current.identifierForVendor?.uuidString ?? "x"
 
         
-        tabBarBuyer.selectedIndex = 0
+        tabBarBuyer.selectedIndex = 1
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.rootViewController = tabBarBuyer
         
         self.window?.makeKeyAndVisible()
         
-        
+        queryforpaywall()
         return true
+    }
+    
+    func queryforpaywall() {
+                
+        ref?.child("Users").observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            let value = snapshot.value as? NSDictionary
+            
+     
+            
+            if let slimey = value?["Slimey"] as? String {
+
+                slimeybool = true
+                
+            } else {
+                
+                slimeybool = false
+
+            }
+            
+            if let discountcode = value?["DiscountCode"] as? String {
+                
+               actualdiscount = discountcode
+                
+            } else {
+                
+                
+            }
+        })
+        
     }
     
     

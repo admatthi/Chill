@@ -50,7 +50,10 @@ class DiscoverViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     override func viewDidAppear(_ animated: Bool) {
         
-        textone == ""
+        textone = ""
+        texttwo = ""
+        textthree = ""
+
     }
 
         @IBOutlet var searchField: UITextField!
@@ -96,6 +99,35 @@ class DiscoverViewController: UIViewController, UICollectionViewDelegate, UIColl
             }
 
         }
+    
+    func queryforinfo() {
+                
+        ref?.child("Users").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            let value = snapshot.value as? NSDictionary
+            
+            if let purchased = value?["Purchased"] as? String {
+                
+                if purchased == "True" {
+                    
+                    didpurchase = true
+                    
+                } else {
+                                 
+                    didpurchase = false
+                    self.performSegue(withIdentifier: "HomeToSale", sender: self)
+                    
+                }
+                
+            } else {
+                
+                didpurchase = false
+              self.performSegue(withIdentifier: "HomeToSale", sender: self)
+            }
+     
+        })
+        
+    }
 
         @IBAction func tapGenre(_ sender: Any) {
 
@@ -209,21 +241,21 @@ class DiscoverViewController: UIViewController, UICollectionViewDelegate, UIColl
 
             ref = Database.database().reference()
 
-
-            selectedgenre = "All"
+            queryforinfo()
             
             genres.removeAll()
-
-            genres.append("All")
+            genres.append("Depression")
             genres.append("Sleep")
             genres.append("Morning")
             genres.append("Anxiety")
             genres.append("Stress")
-            genres.append("Depression")
             genres.append("Focus")
             genres.append("Relationships")
             genres.append("Goals")
-           
+            genres.append("All")
+
+            selectedgenre = "Depression"
+
 
         let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
