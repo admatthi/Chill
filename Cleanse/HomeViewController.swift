@@ -57,7 +57,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
 
                ref = Database.database().reference()
             
-
+            queryforinfo()
+            
                selectedgenre = "Chill"
 
 
@@ -379,7 +380,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                    if let imageURLString = book?.imageURL, let imageUrl = URL(string: imageURLString) {
 
                     
-                    if name == "Morning Session"{
+                    if name == "Morning Therapy"{
                         
                         cell.titleImage.image = UIImage(named: "Sun")
 
@@ -423,6 +424,35 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
 
            }
+    
+    func queryforinfo() {
+                
+        ref?.child("Users").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            let value = snapshot.value as? NSDictionary
+            
+            if let purchased = value?["Purchased"] as? String {
+                
+                if purchased == "True" {
+                    
+                    didpurchase = true
+                    
+                } else {
+                                 
+                    didpurchase = false
+                    self.performSegue(withIdentifier: "HomeToSale2", sender: self)
+                    
+                }
+                
+            } else {
+                
+                didpurchase = false
+              self.performSegue(withIdentifier: "HomeToSale2", sender: self)
+            }
+     
+        })
+        
+    }
 
            var selectedindex = Int()
 

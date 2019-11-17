@@ -39,13 +39,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         uid = UIDevice.current.identifierForVendor?.uuidString ?? "x"
 
-        
-        tabBarBuyer.selectedIndex = 1
+
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.rootViewController = tabBarBuyer
         
         self.window?.makeKeyAndVisible()
+        
+        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+          
+          if launchedBefore {
+              
+              tabBarBuyer.selectedIndex = 1
+              
+          } else {
+              
+              tabBarBuyer.selectedIndex = 0
+              
+              UserDefaults.standard.set(true, forKey: "launchedBefore")
+              
+          }
         
         queryforpaywall()
         return true

@@ -146,17 +146,15 @@ class EntriesViewController: UIViewController, UICollectionViewDelegate, UIColle
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Books", for: indexPath) as! TitleCollectionViewCell
         
         let name = book?.name
+
+            
+        cell.titlelabel.text = name
+            
         
-        if (name?.contains(":"))! {
+        if let date3 = book?.date {
             
-            var namestring = name?.components(separatedBy: ":")
             
-            cell.titlelabel.text = namestring![0]
-            
-        } else {
-            
-            cell.titlelabel.text = name
-            
+            cell.datelabel.text = date3
         }
         
         //                cell.tapup.tag = indexPath.row

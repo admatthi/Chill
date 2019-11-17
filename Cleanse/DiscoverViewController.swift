@@ -255,7 +255,13 @@ class DiscoverViewController: UIViewController, UICollectionViewDelegate, UIColl
             genres.append("All")
 
             selectedgenre = "Depression"
+        
+            let date = Date()
+              let dateFormatter = DateFormatter()
+              dateFormatter.dateFormat = "MMM d"
+              let result = dateFormatter.string(from: date)
 
+              dateformat = result
 
         let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)

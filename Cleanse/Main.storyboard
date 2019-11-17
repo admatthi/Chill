@@ -20,7 +20,7 @@
         <!--Home-->
         <scene sceneID="0Ag-jV-e1t">
             <objects>
-                <viewController extendedLayoutIncludesOpaqueBars="YES" id="0HA-tE-4gf" customClass="HomeViewController" customModule="chill" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController extendedLayoutIncludesOpaqueBars="YES" id="0HA-tE-4gf" customClass="HomeViewController" customModule="Therapage" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="71g-hX-3rO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -38,7 +38,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Books" id="TZD-UL-K9P" customClass="TitleCollectionViewCell" customModule="chill" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Books" id="TZD-UL-K9P" customClass="TitleCollectionViewCell" customModule="Therapage" customModuleProvider="target">
                                         <rect key="frame" x="3.5" y="0.0" width="407" height="105"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ir5-Il-okR">
@@ -57,26 +57,26 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Morning Chill" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PNT-LD-pPC">
-                                                    <rect key="frame" x="89" y="24" width="130.5" height="29"/>
+                                                    <rect key="frame" x="89" y="27" width="130.5" height="29"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="21"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nov 13" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="82v-VF-EPe">
-                                                    <rect key="frame" x="89" y="57" width="50" height="20.5"/>
-                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="15"/>
-                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <rect key="frame" x="89" y="57" width="43.5" height="18"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="13"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="ab3-Da-jYM" firstAttribute="leading" secondItem="ir5-Il-okR" secondAttribute="leading" constant="12" id="44s-gp-a4E"/>
-                                                <constraint firstItem="PNT-LD-pPC" firstAttribute="top" secondItem="ir5-Il-okR" secondAttribute="top" constant="24" id="9Nr-qC-zd1"/>
+                                                <constraint firstItem="PNT-LD-pPC" firstAttribute="top" secondItem="ir5-Il-okR" secondAttribute="top" constant="27" id="9Nr-qC-zd1"/>
                                                 <constraint firstItem="PNT-LD-pPC" firstAttribute="leading" secondItem="ab3-Da-jYM" secondAttribute="trailing" constant="20" id="Ito-4t-a4H"/>
                                                 <constraint firstItem="8NE-Qy-NcX" firstAttribute="top" secondItem="ir5-Il-okR" secondAttribute="top" constant="8" id="LzB-IZ-c36"/>
                                                 <constraint firstItem="ab3-Da-jYM" firstAttribute="top" secondItem="ir5-Il-okR" secondAttribute="top" constant="24" id="Q8k-Go-zIW"/>
                                                 <constraint firstAttribute="trailing" secondItem="8NE-Qy-NcX" secondAttribute="trailing" constant="8" id="S2P-ml-DyM"/>
-                                                <constraint firstItem="82v-VF-EPe" firstAttribute="top" secondItem="PNT-LD-pPC" secondAttribute="bottom" constant="4" id="Vkd-e3-tGR"/>
+                                                <constraint firstItem="82v-VF-EPe" firstAttribute="top" secondItem="PNT-LD-pPC" secondAttribute="bottom" constant="1" id="Vkd-e3-tGR"/>
                                                 <constraint firstAttribute="bottom" secondItem="ab3-Da-jYM" secondAttribute="bottom" constant="24" id="Xgm-Wk-anC"/>
                                                 <constraint firstAttribute="bottom" secondItem="8NE-Qy-NcX" secondAttribute="bottom" constant="8" id="ahq-KA-hvH"/>
                                                 <constraint firstItem="8NE-Qy-NcX" firstAttribute="leading" secondItem="ir5-Il-okR" secondAttribute="leading" constant="6" id="flK-zz-BC4"/>
@@ -162,7 +162,7 @@
         <!--Overview View Controller-->
         <scene sceneID="XWb-eN-eH6">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="OL2-St-Y9g" customClass="OverviewViewController" customModule="chill" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="OL2-St-Y9g" customClass="OverviewViewController" customModule="Therapage" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="k5O-tJ-zIc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -280,10 +280,10 @@
             </objects>
             <point key="canvasLocation" x="-1394.2028985507247" y="-715.17857142857144"/>
         </scene>
-        <!--Write-->
+        <!--Discover-->
         <scene sceneID="110-tK-uaE">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="0CK-Q6-Kep" customClass="DiscoverViewController" customModule="chill" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="0CK-Q6-Kep" customClass="DiscoverViewController" customModule="Therapage" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GzX-gq-4z8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -301,7 +301,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Books" id="EUr-xb-GhV" customClass="TitleCollectionViewCell" customModule="chill" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Books" id="EUr-xb-GhV" customClass="TitleCollectionViewCell" customModule="Therapage" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="171" height="213"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="lhl-bX-YcG">
@@ -363,7 +363,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Categories" id="teP-Xp-6c0" customClass="GenreCollectionViewCell" customModule="chill" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Categories" id="teP-Xp-6c0" customClass="GenreCollectionViewCell" customModule="Therapage" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="2" width="106" height="62"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -425,7 +425,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5Zn-De-3ru"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Write" image="Therapy" id="RtD-pt-1p5"/>
+                    <tabBarItem key="tabBarItem" title="Discover" image="Therapy" id="RtD-pt-1p5"/>
                     <connections>
                         <outlet property="backimage" destination="roP-dD-Qyv" id="Qjy-8q-yvV"/>
                         <outlet property="genreCollectionView" destination="cXk-hF-5Rd" id="gjc-fa-oy3"/>
@@ -443,7 +443,7 @@
         <!--HomeTab-->
         <scene sceneID="o2d-0a-EZU">
             <objects>
-                <tabBarController storyboardIdentifier="HomeTab" title="HomeTab" modalPresentationStyle="fullScreen" id="51j-GM-QaJ" customClass="HomeTabViewController" customModule="chill" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="HomeTab" title="HomeTab" modalPresentationStyle="fullScreen" id="51j-GM-QaJ" customClass="HomeTabViewController" customModule="Therapage" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="qSU-tA-TkK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -453,8 +453,8 @@
                         <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="0HA-tE-4gf" kind="relationship" relationship="viewControllers" id="xIY-7b-ff5"/>
                         <segue destination="0CK-Q6-Kep" kind="relationship" relationship="viewControllers" id="Mcw-6O-yxX"/>
+                        <segue destination="0HA-tE-4gf" kind="relationship" relationship="viewControllers" id="xIY-7b-ff5"/>
                         <segue destination="kuX-T0-Dbr" kind="relationship" relationship="viewControllers" id="pGC-i7-Gwc"/>
                     </connections>
                 </tabBarController>
@@ -465,7 +465,7 @@
         <!--Text View Controller-->
         <scene sceneID="RhM-Cc-9fb">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="Js2-iJ-cIc" customClass="TextViewController" customModule="chill" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="Js2-iJ-cIc" customClass="TextViewController" customModule="Therapage" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5f4-QP-Kb0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -621,7 +621,7 @@
         <!--Free To Play View Controller-->
         <scene sceneID="rJF-n4-q80">
             <objects>
-                <viewController extendedLayoutIncludesOpaqueBars="YES" id="BWj-Zk-Lfg" customClass="FreeToPlayViewController" customModule="chill" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController extendedLayoutIncludesOpaqueBars="YES" id="BWj-Zk-Lfg" customClass="FreeToPlayViewController" customModule="Therapage" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XOh-6n-p7g">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -763,7 +763,7 @@
         <!--Sessions-->
         <scene sceneID="rPW-5b-SLx">
             <objects>
-                <viewController extendedLayoutIncludesOpaqueBars="YES" id="kuX-T0-Dbr" customClass="EntriesViewController" customModule="chill" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController extendedLayoutIncludesOpaqueBars="YES" id="kuX-T0-Dbr" customClass="EntriesViewController" customModule="Therapage" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="O97-kB-z71">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -781,7 +781,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Books" id="5d6-Qk-bfJ" customClass="TitleCollectionViewCell" customModule="chill" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Books" id="5d6-Qk-bfJ" customClass="TitleCollectionViewCell" customModule="Therapage" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="171" height="213"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="XOf-bJ-Czu">
@@ -792,12 +792,21 @@
                                                     <rect key="frame" x="0.0" y="8" width="171" height="205"/>
                                                 </imageView>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rectangle Copy 5" translatesAutoresizingMaskIntoConstraints="NO" id="Cdc-ed-bwL">
-                                                    <rect key="frame" x="-5" y="176" width="181" height="37"/>
+                                                    <rect key="frame" x="-5" y="164" width="181" height="49"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How to end you" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kqJ-Q8-Gr4">
-                                                    <rect key="frame" x="5" y="183.5" width="161" height="23.5"/>
+                                                    <rect key="frame" x="5" y="169.5" width="161" height="23.5"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nov 2" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="woA-YU-FFD">
+                                                    <rect key="frame" x="6" y="191" width="161" height="19"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="19" id="ErT-Hf-Y2e"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="12"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -805,19 +814,23 @@
                                                 <constraint firstItem="fzd-F7-YZ4" firstAttribute="top" secondItem="XOf-bJ-Czu" secondAttribute="top" constant="8" id="1Vw-Ci-YER"/>
                                                 <constraint firstAttribute="trailing" secondItem="kqJ-Q8-Gr4" secondAttribute="trailing" constant="5" id="2QL-Zh-cUv"/>
                                                 <constraint firstItem="kqJ-Q8-Gr4" firstAttribute="leading" secondItem="XOf-bJ-Czu" secondAttribute="leading" constant="5" id="3VC-Ke-hal"/>
+                                                <constraint firstAttribute="trailing" secondItem="woA-YU-FFD" secondAttribute="trailing" constant="4" id="BKy-YL-gcU"/>
                                                 <constraint firstAttribute="bottom" secondItem="fzd-F7-YZ4" secondAttribute="bottom" id="IuV-YU-Zf9"/>
-                                                <constraint firstItem="kqJ-Q8-Gr4" firstAttribute="top" secondItem="Cdc-ed-bwL" secondAttribute="bottom" constant="-29.5" id="ME5-zH-4qN"/>
+                                                <constraint firstItem="kqJ-Q8-Gr4" firstAttribute="top" secondItem="Cdc-ed-bwL" secondAttribute="bottom" constant="-43.5" id="ME5-zH-4qN"/>
                                                 <constraint firstAttribute="trailing" secondItem="fzd-F7-YZ4" secondAttribute="trailing" id="WvM-O6-C5l"/>
-                                                <constraint firstItem="Cdc-ed-bwL" firstAttribute="top" secondItem="kqJ-Q8-Gr4" secondAttribute="top" constant="-7.5" id="eAk-Cj-O05"/>
+                                                <constraint firstItem="Cdc-ed-bwL" firstAttribute="top" secondItem="kqJ-Q8-Gr4" secondAttribute="top" constant="-5.5" id="eAk-Cj-O05"/>
                                                 <constraint firstItem="fzd-F7-YZ4" firstAttribute="leading" secondItem="XOf-bJ-Czu" secondAttribute="leading" id="l9R-49-Jpb"/>
+                                                <constraint firstItem="woA-YU-FFD" firstAttribute="leading" secondItem="XOf-bJ-Czu" secondAttribute="leading" constant="6" id="lUZ-P4-it1"/>
                                                 <constraint firstItem="Cdc-ed-bwL" firstAttribute="leading" secondItem="XOf-bJ-Czu" secondAttribute="leading" constant="-5" id="lYe-vL-PW4"/>
                                                 <constraint firstAttribute="trailing" secondItem="Cdc-ed-bwL" secondAttribute="trailing" constant="-5" id="p6w-sa-a6M"/>
                                                 <constraint firstAttribute="bottom" secondItem="Cdc-ed-bwL" secondAttribute="bottom" id="uQ3-wG-LrB"/>
-                                                <constraint firstAttribute="bottom" secondItem="kqJ-Q8-Gr4" secondAttribute="bottom" constant="6" id="vqi-Nu-ojh"/>
+                                                <constraint firstAttribute="bottom" secondItem="kqJ-Q8-Gr4" secondAttribute="bottom" constant="20" id="vqi-Nu-ojh"/>
+                                                <constraint firstAttribute="bottom" secondItem="woA-YU-FFD" secondAttribute="bottom" constant="3" id="z0Z-9g-k1i"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="171" height="213"/>
                                         <connections>
+                                            <outlet property="datelabel" destination="woA-YU-FFD" id="sCQ-Fs-w51"/>
                                             <outlet property="titleImage" destination="fzd-F7-YZ4" id="wDu-8H-EDG"/>
                                             <outlet property="titleback" destination="Cdc-ed-bwL" id="WJ8-ZW-04y"/>
                                             <outlet property="titlelabel" destination="kqJ-Q8-Gr4" id="6Oc-lS-Ppm"/>
@@ -857,7 +870,7 @@
         <!--Audio View Controller-->
         <scene sceneID="2Uq-fA-x1W">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="UEh-ac-w6s" customClass="AudioViewController" customModule="chill" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="UEh-ac-w6s" customClass="AudioViewController" customModule="Therapage" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="G5E-Mu-bEv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -992,7 +1005,7 @@
         <!--Sales-->
         <scene sceneID="G1S-8Z-5WB">
             <objects>
-                <viewController storyboardIdentifier="Sales" title="Sales" modalPresentationStyle="fullScreen" id="9SS-P9-1pT" customClass="PaywallViewController" customModule="chill" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Sales" title="Sales" modalPresentationStyle="fullScreen" id="9SS-P9-1pT" customClass="PaywallViewController" customModule="Therapage" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mRg-p1-TYx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1007,12 +1020,12 @@
                                     <constraint firstAttribute="width" constant="198" id="XRU-b8-Ers"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100+ guided therapy sessions" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VNG-xH-4xN">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100+ guided writing therapy sessions" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VNG-xH-4xN">
                                 <rect key="frame" x="49" y="205.5" width="356" height="52"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="swj-dg-UOJ"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -1136,7 +1149,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="3Mi-jz-DE2"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -1154,7 +1167,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="LL7-79-Zdk"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -1172,7 +1185,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="wCm-XR-Zel"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -1199,7 +1212,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="hbL-q7-z0r"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -1219,10 +1232,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CoachLogo Copy-3" translatesAutoresizingMaskIntoConstraints="NO" id="wus-gS-aIy">
-                                <rect key="frame" x="122" y="106" width="84" height="27"/>
+                                <rect key="frame" x="133" y="107" width="166" height="32"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="84" id="8Z4-yB-Ngi"/>
-                                    <constraint firstAttribute="height" constant="27" id="B4D-Q9-7PR"/>
+                                    <constraint firstAttribute="width" constant="166" id="8Z4-yB-Ngi"/>
+                                    <constraint firstAttribute="height" constant="32" id="B4D-Q9-7PR"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jT1-E5-rBf">
@@ -1260,7 +1273,7 @@
                             <constraint firstItem="Edx-UB-YeI" firstAttribute="leading" secondItem="Sec-rz-e4t" secondAttribute="leading" constant="5" id="4lE-tG-D2A"/>
                             <constraint firstItem="rkF-x1-uB2" firstAttribute="top" secondItem="Edx-UB-YeI" secondAttribute="bottom" constant="18" id="54g-Hc-jT7"/>
                             <constraint firstItem="FHL-lm-R7A" firstAttribute="leading" secondItem="Sec-rz-e4t" secondAttribute="leading" constant="17" id="585-3T-HrV"/>
-                            <constraint firstItem="wus-gS-aIy" firstAttribute="leading" secondItem="UdG-rb-3N1" secondAttribute="trailing" constant="-3" id="5Rg-UU-TXh"/>
+                            <constraint firstItem="wus-gS-aIy" firstAttribute="leading" secondItem="UdG-rb-3N1" secondAttribute="trailing" constant="8" id="5Rg-UU-TXh"/>
                             <constraint firstItem="Sec-rz-e4t" firstAttribute="trailing" secondItem="srt-Zx-OBP" secondAttribute="trailing" constant="9" id="5s2-3r-Mu5"/>
                             <constraint firstItem="re5-aN-x7q" firstAttribute="top" secondItem="d7d-0z-w4x" secondAttribute="bottom" constant="-20" id="70L-VI-882"/>
                             <constraint firstItem="FHL-lm-R7A" firstAttribute="top" secondItem="mRg-p1-TYx" secondAttribute="topMargin" constant="10" id="7JS-lx-iXj"/>
@@ -1291,7 +1304,7 @@
                             <constraint firstItem="qpg-wA-aeG" firstAttribute="bottom" secondItem="Sec-rz-e4t" secondAttribute="bottom" constant="34" id="bWo-WS-QiI"/>
                             <constraint firstItem="TlR-Cn-073" firstAttribute="leading" secondItem="cbX-m2-I8S" secondAttribute="trailing" constant="5" id="crH-Mf-MxZ"/>
                             <constraint firstItem="Zez-7G-6sY" firstAttribute="centerX" secondItem="mRg-p1-TYx" secondAttribute="centerX" constant="-22.5" id="ctH-Hb-WqR"/>
-                            <constraint firstItem="wus-gS-aIy" firstAttribute="centerY" secondItem="UdG-rb-3N1" secondAttribute="centerY" constant="-2.5" id="dAu-Pg-Xeu"/>
+                            <constraint firstItem="wus-gS-aIy" firstAttribute="centerY" secondItem="UdG-rb-3N1" secondAttribute="centerY" constant="1" id="dAu-Pg-Xeu"/>
                             <constraint firstItem="qpg-wA-aeG" firstAttribute="top" secondItem="mRg-p1-TYx" secondAttribute="top" id="evH-Kb-MqI"/>
                             <constraint firstItem="Zez-7G-6sY" firstAttribute="top" secondItem="Lt3-LH-FAl" secondAttribute="bottom" constant="14" id="frq-3g-zwV"/>
                             <constraint firstItem="Sec-rz-e4t" firstAttribute="trailing" secondItem="5SP-Qa-cED" secondAttribute="trailing" constant="9" id="gJl-Na-HIw"/>
@@ -1344,7 +1357,7 @@
         <image name="By proceeding, you a" width="542" height="74"/>
         <image name="CheckMark" width="16" height="16"/>
         <image name="Checkmark" width="200" height="200"/>
-        <image name="CoachLogo Copy-3" width="303" height="127"/>
+        <image name="CoachLogo Copy-3" width="404" height="80"/>
         <image name="FavoritesUntapped Copy" width="16" height="16"/>
         <image name="GreenRectangle-2" width="16" height="16"/>
         <image name="Home Copy" width="30" height="30"/>
@@ -1360,8 +1373,8 @@
         <image name="image1" width="1296" height="864"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="c35-gA-9NY"/>
+        <segue reference="JqX-1y-5PP"/>
         <segue reference="yKM-yS-eie"/>
-        <segue reference="Lo7-dB-OB6"/>
+        <segue reference="Mhc-Zy-cbR"/>
     </inferredMetricsTieBreakers>
 </document>
