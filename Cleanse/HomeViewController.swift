@@ -52,6 +52,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
 
            var mycolors = [UIColor]()
 
+            var time = String()
            override func viewDidLoad() {
                super.viewDidLoad()
 
@@ -63,6 +64,9 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
 
 
                titleCollectionView.reloadData()
+            
+      
+            
             
             var screenSize = titleCollectionView.bounds
                    var screenWidth = screenSize.width
@@ -128,8 +132,17 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                        if let newbooks = genre.books {
 
                            self.books = newbooks
+                        
+                    
+                        if Int(self.time) ?? 11 < 12 {
+                            
+                              self.books = self.books.sorted(by: { $0.name ?? "Morning"  > $1.name ?? "Evening" })
+                        } else {
+                            
+                              self.books = self.books.sorted(by: { $1.name ?? "Morning"  > $0.name ?? "Evening" })
+                        }
 
-                           self.books = self.books.sorted(by: { $0.popularity ?? 0  > $1.popularity ?? 0 })
+                      
 
                        }
 
@@ -326,13 +339,21 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     override func viewDidAppear(_ animated: Bool) {
         
         
-          textone == ""
-      }
+        textone == ""
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH"
+        time = dateFormatter.string(from: NSDate() as Date)
+        
+
+        
+        titleCollectionView.reloadData()
+    }
 
            func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 
          
-                   return books.count
+            return books.count
            
            }
 
@@ -377,14 +398,26 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
 
 
 
-                   if let imageURLString = book?.imageURL, let imageUrl = URL(string: imageURLString) {
 
+      
                     
-                    if name == "Morning Therapy"{
+                    if name == "Morning Pages"{
                         
                         cell.titleImage.image = UIImage(named: "Sun")
+                        
+              
+                        if Int(time) ?? 11 > 12 {
+                            
+                            cell.alpha = 0
+                            
+                        }
 
                     } else {
+                        
+                        if Int(time) ?? 11 <= 12 {
+                            
+                            cell.alpha = 0
+                        }
                         
                         cell.titleImage.image = UIImage(named: "Moon")
 
@@ -398,7 +431,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                        cell.titleImage.clipsToBounds = true
                        cell.titleImage.alpha = 1
 
-                   }
 
                    let isWished = Bool()
 
