@@ -33,11 +33,12 @@ class EntriesViewController: UIViewController, UICollectionViewDelegate, UIColle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
-        let blurEffectView = UIVisualEffectView(effect: blurEffect)
-        blurEffectView.frame = backi.bounds
-        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        backi.addSubview(blurEffectView)
+//        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
+//        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+//        blurEffectView.frame = backi.bounds
+//        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+//
+//        backi.addSubview(blurEffectView)
         
         queryforids { () -> Void in
             
@@ -48,10 +49,11 @@ class EntriesViewController: UIViewController, UICollectionViewDelegate, UIColle
             var screenHeight = screenSize.height
 
             let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-            layout.sectionInset = UIEdgeInsets(top: 5, left: 0, bottom: 10, right: 0)
-        layout.itemSize = CGSize(width: screenWidth/2.3, height: screenWidth/1.7)
-            layout.minimumInteritemSpacing = 0
-            layout.minimumLineSpacing = 0
+                 layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 10, right: 5)
+             layout.itemSize = CGSize(width: screenWidth/2.3, height: screenWidth/1.7)
+                 layout.minimumInteritemSpacing = 0
+                 layout.minimumLineSpacing = 0
+
 
             collectionView!.collectionViewLayout = layout
         

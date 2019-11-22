@@ -263,11 +263,11 @@ class DiscoverViewController: UIViewController, UICollectionViewDelegate, UIColl
 
               dateformat = result
 
-        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
-        let blurEffectView = UIVisualEffectView(effect: blurEffect)
-        blurEffectView.frame = backimage.bounds
-        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-       backimage.addSubview(blurEffectView)
+//        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
+//        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+//        blurEffectView.frame = backimage.bounds
+//        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+//       backimage.addSubview(blurEffectView)
 
             NotificationCenter.default.addObserver(self, selector: #selector(loadList(notification:)), name: NSNotification.Name(rawValue: "load"), object: nil)
 
@@ -310,7 +310,7 @@ class DiscoverViewController: UIViewController, UICollectionViewDelegate, UIColl
             var screenHeight = screenSize.height
 
             let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-            layout.sectionInset = UIEdgeInsets(top: 5, left: 0, bottom: 10, right: 0)
+            layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 10, right: 5)
         layout.itemSize = CGSize(width: screenWidth/2.3, height: screenWidth/1.7)
             layout.minimumInteritemSpacing = 0
             layout.minimumLineSpacing = 0
@@ -679,6 +679,8 @@ class DiscoverViewController: UIViewController, UICollectionViewDelegate, UIColl
 
                 collectionView.alpha = 1
                 cell.titlelabel.text = genres[indexPath.row]
+                
+                
                 //            cell.titlelabel.sizeToFit()
 
                 cell.selectedimage.layer.cornerRadius = 5.0
@@ -842,8 +844,12 @@ class DiscoverViewController: UIViewController, UICollectionViewDelegate, UIColl
 
             case self.titleCollectionView:
                 let book = self.book(atIndexPath: indexPath)
+                
+                
                 titleCollectionView.alpha = 1
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Books", for: indexPath) as! TitleCollectionViewCell
+                
+                
                 //
                 //            if book?.bookID == "Title" {
                 //
@@ -866,6 +872,8 @@ class DiscoverViewController: UIViewController, UICollectionViewDelegate, UIColl
                     cell.titlelabel.text = name
 
                 }
+                
+                
 
 //                cell.tapup.tag = indexPath.row
 //
