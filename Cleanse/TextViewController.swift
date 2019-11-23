@@ -19,6 +19,97 @@ class TextViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var authorlabel: UILabel!
     @IBOutlet weak var titlelabel: UILabel!
     
+    @IBAction func tapSave(_ sender: Any) {
+        
+          tapsave.alpha = 0
+                
+                var myname = " "
+                
+                
+                
+                if textView.text != "" {
+                    
+                    let submission = textView.text!
+                    
+                    if submission.contains(".")  {
+                        
+                        var token = submission.components(separatedBy: ".")
+                        
+                        myname = token[0]
+                        
+                        ref?.child("Entries").child(uid).child(selectedbookid).removeValue()
+                        ref?.child("Entries").child(uid).childByAutoId().updateChildValues(["Author" : "You", "Name" : myname, "Headline1" : headlines[0], "Author Image" : selectedauthorimage, "Image" : "https://images.unsplash.com/photo-1571963977247-b7a0c50f0d93?ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=60", "Text\(counter)" : textView.text!, "Date" : dateformat])
+                        
+                        self.dismiss(animated: true, completion: nil)
+                        
+                    } else {
+                        
+                        if submission.contains("\n")  {
+                            
+                            var token = submission.components(separatedBy: ".")
+                            
+                            myname = token[0]
+                            
+                            ref?.child("Entries").child(uid).child(selectedbookid).removeValue()
+
+                            
+                            ref?.child("Entries").child(uid).childByAutoId().updateChildValues(["Author" : "You", "Name" : myname, "Headline1" : headlines[0], "Author Image" : selectedauthorimage, "Image" : "https://images.unsplash.com/photo-1571963977247-b7a0c50f0d93?ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=60", "Text\(counter)" : textView.text!, "Date" : dateformat, "IntDate" : myint])
+                            
+                            self.dismiss(animated: true, completion: nil)
+
+                        } else {
+                            
+                            if submission.contains(" ")  {
+                                    
+                                    var token = submission.components(separatedBy: ".")
+                                    
+                                    myname = token[0]
+                                    
+                                    
+                                ref?.child("Entries").child(uid).child(selectedbookid).removeValue()
+
+                                    ref?.child("Entries").child(uid).childByAutoId().updateChildValues(["Author" : "You", "Name" : myname, "Headline1" : headlines[0], "Author Image" : selectedauthorimage, "Image" : "https://images.unsplash.com/photo-1571963977247-b7a0c50f0d93?ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=60", "Text\(counter)" : textView.text!, "Date" : dateformat, "IntDate" : myint])
+                                
+                                self.dismiss(animated: true, completion: nil)
+
+                                    
+                            } else {
+                                
+                                ref?.child("Entries").child(uid).child(selectedbookid).removeValue()
+
+                                ref?.child("Entries").child(uid).childByAutoId().updateChildValues(["Author" : "You", "Name" : "Daily", "Headline1" : headlines[0], "Author Image" : selectedauthorimage, "Image" : selectedbackground, "Text\(counter)" : textView.text!, "Date" : dateformat, "IntDate" : myint])
+                                
+                                self.dismiss(animated: true, completion: nil)
+
+                            }
+                            
+                        }
+                        
+                        
+                    }
+                    
+                    
+                }
+                
+        //        toplabel.alpha = 1
+                textView.text = ""
+    }
+    @IBAction func tapDone(_ sender: Any) {
+        
+                self.textView.endEditing(true)
+                tapdone.alpha = 0
+                
+                if textView.text != "" {
+                           
+                    tapsave.alpha = 1
+
+                } else {
+                    
+        //            toplabel.alpha = 1
+                }
+    }
+    @IBOutlet weak var tapdone: UIButton!
+    @IBOutlet weak var tapsave: UIButton!
     func addDoneButtonOnKeyboard(){
         let doneToolbar: UIToolbar = UIToolbar(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
         doneToolbar.barStyle = .default
@@ -126,16 +217,28 @@ class TextViewController: UIViewController, UITextViewDelegate {
         textView.text = ""
         textView.textColor = UIColor.black
         
-        textView.becomeFirstResponder()
-        
-        tapsave.layer.cornerRadius = 5.0
-        tapsave.clipsToBounds = true
+          textView.delegate = self
+           textView.becomeFirstResponder()
+           tapsave.alpha = 0
+           tapdone.alpha = 1
+        tapdone.layer.borderColor = myblue.cgColor
+           tapdone.layer.borderWidth = 2.0
+           tapdone.layer.cornerRadius = 5.0
+           tapdone.clipsToBounds = true
+           
+        tapsave.layer.borderColor = myblue.cgColor
+            tapsave.layer.borderWidth = 2.0
+            tapsave.layer.cornerRadius = 5.0
+            tapsave.clipsToBounds = true
         
         
         
         if headlines.count > 1 {
             
-            progressView.alpha = 1
+//            progressView.alpha = 1
+            
+            progressView.alpha = 0
+
             
             text.text = headlines[counter]
             
@@ -152,12 +255,12 @@ class TextViewController: UIViewController, UITextViewDelegate {
         
         let  imageUrl = URL(string: imageURLString)
         
-        backimage.kf.setImage(with: imageUrl)
-        backimage.layer.cornerRadius = backimage.frame.size.width / 2
-        backimage.clipsToBounds = true
-        authorftile.text = selectedauthorname
-        titleoftile.text = selectedtitle
-        
+//        backimage.kf.setImage(with: imageUrl)
+//        backimage.layer.cornerRadius = backimage.frame.size.width / 2
+//        backimage.clipsToBounds = true
+//        authorftile.text = selectedauthorname
+//        titleoftile.text = selectedtitle
+//
         if textone != "" {
             
             textView.text = textone
@@ -256,21 +359,14 @@ class TextViewController: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var progressView: UIProgressView!
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.textColor == UIColor.lightGray {
-            textView.text = nil
-            textView.textColor = UIColor.black
-        }
+        
+          tapsave.alpha = 0
+        tapdone.alpha = 1
     }
     
     func textViewDidChange(_ textView: UITextView) {
         
-        if textView.text != "" {
-            
-            tapsave.alpha = 1
-        } else {
-            
-            tapsave.alpha = 0.5
-        }
+      
     }
     
     func setDoneOnKeyboard() {
@@ -286,7 +382,6 @@ class TextViewController: UIViewController, UITextViewDelegate {
         view.endEditing(true)
     }
     
-    @IBOutlet weak var tapsave: UIButton!
     @IBAction func tapContinue(_ sender: Any) {
         
         if textView.text != "" {

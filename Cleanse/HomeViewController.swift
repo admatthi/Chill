@@ -13,6 +13,9 @@ import FirebaseDatabase
 import AudioToolbox
 import AVFoundation
 
+var myblue = UIColor(red:0.56, green:0.59, blue:0.70, alpha:1.0)
+
+
 class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITextViewDelegate  {
     
     var counter = 0
@@ -61,7 +64,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         var myname = " "
         
-        
+        headlines.removeAll()
+        headlines.append(" ")
         
         if textView.text != "" {
             
@@ -100,7 +104,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                             
                     } else {
                         
-                        ref?.child("Entries").child(uid).childByAutoId().updateChildValues(["Author" : "You", "Name" : "Daily", "Headline1" : " ", "Author Image" : selectedauthorimage, "Image" : selectedbackground, "Text\(counter)" : textView.text!, "Date" : dateformat, "IntDate" : myint])
+                        ref?.child("Entries").child(uid).childByAutoId().updateChildValues(["Author" : "You", "Name" : textView.text!, "Headline1" : " ", "Author Image" : selectedauthorimage, "Image" : selectedbackground, "Text\(counter)" : textView.text!, "Date" : dateformat, "IntDate" : myint])
                     }
                     
                 }
@@ -111,9 +115,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             
         }
         
-//        toplabel.alpha = 1
+        toplabel.alpha = 1
         textView.text = ""
-        toplabel.alpha = 0
 
         
     }
@@ -149,12 +152,12 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         textView.becomeFirstResponder()
         tapsave.alpha = 0
         tapdone.alpha = 1
-        tapdone.layer.borderColor = UIColor.lightGray.cgColor
+        tapdone.layer.borderColor = myblue.cgColor
         tapdone.layer.borderWidth = 2.0
         tapdone.layer.cornerRadius = 5.0
         tapdone.clipsToBounds = true
         
-        tapsave.layer.borderColor = UIColor.lightGray.cgColor
+        tapsave.layer.borderColor = myblue.cgColor
          tapsave.layer.borderWidth = 2.0
          tapsave.layer.cornerRadius = 5.0
          tapsave.clipsToBounds = true
