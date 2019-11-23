@@ -26,6 +26,8 @@ var selectedauthorimage = String()
 var uid = String()
 var ref : DatabaseReference?
 
+var myint = Int()
+
 var bookindex = Int()
                var selectedauthor = String()
                var selectedtitle = String()
@@ -262,6 +264,11 @@ class DiscoverViewController: UIViewController, UICollectionViewDelegate, UIColl
               let result = dateFormatter.string(from: date)
 
               dateformat = result
+        
+            let timeInterval = date.timeIntervalSince1970
+
+        // convert to Integer
+            myint = Int(timeInterval)
 
 //        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
 //        let blurEffectView = UIVisualEffectView(effect: blurEffect)

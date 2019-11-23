@@ -47,6 +47,7 @@ struct Book {
     let text2: String?
     let text3: String?
     let date: String?
+    let intdate: Int?
 
 
     let summary: Summary
@@ -90,6 +91,7 @@ struct Book {
         self.text2 = json["Text1"] as? String
         self.text3 = json["Text2"] as? String
         self.date = json["Date"] as? String
+        self.intdate = json["IntDate"] as? Int
 
 
 

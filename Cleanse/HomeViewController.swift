@@ -13,7 +13,7 @@ import FirebaseDatabase
 import AudioToolbox
 import AVFoundation
 
-class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout  {
+class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITextViewDelegate  {
     
     var counter = 0
     //
@@ -50,9 +50,89 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     
     
+    @IBOutlet weak var toplabel: UILabel!
     var mycolors = [UIColor]()
     
+    @IBOutlet weak var tapdone: UIButton!
+    @IBOutlet weak var tapsave: UIButton!
+    @IBAction func tapSave(_ sender: Any) {
+        
+        tapsave.alpha = 0
+        
+        var myname = " "
+        
+        
+        
+        if textView.text != "" {
+            
+            let submission = textView.text!
+            
+            if submission.contains(".")  {
+                
+                var token = submission.components(separatedBy: ".")
+                
+                myname = token[0]
+                
+                
+                ref?.child("Entries").child(uid).childByAutoId().updateChildValues(["Author" : "You", "Name" : myname, "Headline1" : " ", "Author Image" : selectedauthorimage, "Image" : "https://images.unsplash.com/photo-1571963977247-b7a0c50f0d93?ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=60", "Text\(counter)" : textView.text!, "Date" : dateformat])
+                
+            } else {
+                
+                if submission.contains("\n")  {
+                    
+                    var token = submission.components(separatedBy: ".")
+                    
+                    myname = token[0]
+                    
+                    
+                    ref?.child("Entries").child(uid).childByAutoId().updateChildValues(["Author" : "You", "Name" : myname, "Headline1" : " ", "Author Image" : selectedauthorimage, "Image" : "https://images.unsplash.com/photo-1571963977247-b7a0c50f0d93?ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=60", "Text\(counter)" : textView.text!, "Date" : dateformat, "IntDate" : myint])
+                    
+                } else {
+                    
+                    if submission.contains(" ")  {
+                            
+                            var token = submission.components(separatedBy: ".")
+                            
+                            myname = token[0]
+                            
+                            
+                            ref?.child("Entries").child(uid).childByAutoId().updateChildValues(["Author" : "You", "Name" : myname, "Headline1" : " ", "Author Image" : selectedauthorimage, "Image" : "https://images.unsplash.com/photo-1571963977247-b7a0c50f0d93?ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=60", "Text\(counter)" : textView.text!, "Date" : dateformat, "IntDate" : myint])
+                            
+                    } else {
+                        
+                        ref?.child("Entries").child(uid).childByAutoId().updateChildValues(["Author" : "You", "Name" : "Daily", "Headline1" : " ", "Author Image" : selectedauthorimage, "Image" : selectedbackground, "Text\(counter)" : textView.text!, "Date" : dateformat, "IntDate" : myint])
+                    }
+                    
+                }
+                
+                
+            }
+            
+            
+        }
+        
+//        toplabel.alpha = 1
+        textView.text = ""
+        toplabel.alpha = 0
+
+        
+    }
     var time = String()
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        
+        tapsave.alpha = 0
+        tapdone.alpha = 1
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        
+        if textView.text != "" {
+            
+            toplabel.alpha = 0
+        }
+       
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -62,10 +142,22 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         selectedgenre = "Chill"
         
-        
+
         titleCollectionView.reloadData()
         
+        textView.delegate = self
+        textView.becomeFirstResponder()
+        tapsave.alpha = 0
+        tapdone.alpha = 1
+        tapdone.layer.borderColor = UIColor.lightGray.cgColor
+        tapdone.layer.borderWidth = 2.0
+        tapdone.layer.cornerRadius = 5.0
+        tapdone.clipsToBounds = true
         
+        tapsave.layer.borderColor = UIColor.lightGray.cgColor
+         tapsave.layer.borderWidth = 2.0
+         tapsave.layer.cornerRadius = 5.0
+         tapsave.clipsToBounds = true
         
         
         var screenSize = titleCollectionView.bounds
@@ -100,8 +192,20 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         counter = 0
         
+        let date = Date()
+              let dateFormatter = DateFormatter()
+              dateFormatter.dateFormat = "MMM d"
+              let result = dateFormatter.string(from: date)
+
+              dateformat = result
+        
+            let timeInterval = date.timeIntervalSince1970
+
+        // convert to Integer
+            myint = Int(timeInterval)
         
         
+        toplabel.alpha = 0
         // Do any additional setup after loading the view.
     }
     
@@ -457,7 +561,27 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         
     }
+    @IBAction func tapDone(_ sender: Any) {
+        
+        self.textView.endEditing(true)
+        tapdone.alpha = 0
+        
+        if textView.text != "" {
+                   
+            tapsave.alpha = 1
+            toplabel.alpha = 0
+
+        } else {
+            
+//            toplabel.alpha = 1
+            toplabel.alpha = 0
+
+
+        }
+
+    }
     
+    @IBOutlet weak var textView: UITextView!
     func queryforinfo() {
         
         ref?.child("Users").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in

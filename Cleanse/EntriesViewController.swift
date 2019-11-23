@@ -50,12 +50,25 @@ class EntriesViewController: UIViewController, UICollectionViewDelegate, UIColle
 
             let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
                  layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 10, right: 5)
-             layout.itemSize = CGSize(width: screenWidth/2.3, height: screenWidth/1.7)
+        layout.itemSize = CGSize(width: screenWidth/1.2, height: screenWidth/5)
                  layout.minimumInteritemSpacing = 0
                  layout.minimumLineSpacing = 0
 
 
             collectionView!.collectionViewLayout = layout
+        
+        let date = Date()
+              let dateFormatter = DateFormatter()
+              dateFormatter.dateFormat = "MMM d"
+              let result = dateFormatter.string(from: date)
+
+              dateformat = result
+        
+            let timeInterval = date.timeIntervalSince1970
+
+        // convert to Integer
+            myint = Int(timeInterval)
+        
         
         // Do any additional setup after loading the view.
     }
@@ -80,7 +93,7 @@ class EntriesViewController: UIViewController, UICollectionViewDelegate, UIColle
                     
                     self.books = newbooks
                     
-                    self.books = self.books.sorted(by: { $0.popularity ?? 0  > $1.popularity ?? 0 })
+                    self.books = self.books.sorted(by: { $0.intdate ?? 0  > $1.intdate ?? 0 })
                     
                 }
                 
@@ -151,7 +164,15 @@ class EntriesViewController: UIViewController, UICollectionViewDelegate, UIColle
 
             
         cell.titlelabel.text = name
-            
+//        cell.titleImage.layer.applySketchShadow(
+//        color: .black,
+//        alpha: 0.5,
+//        x: 1,
+//        y: 1,
+//        blur: 4,
+//        spread: 0)
+        
+//        cell.titleImage.layer.masksToBounds = false
         
         if let date3 = book?.date {
             
@@ -162,16 +183,15 @@ class EntriesViewController: UIViewController, UICollectionViewDelegate, UIColle
         //                cell.tapup.tag = indexPath.row
         //
         //                cell.tapup.addTarget(self, action: #selector(DiscoverViewController.tapWishlist), for: .touchUpInside)
-        
-        if let imageURLString = book?.imageURL, let imageUrl = URL(string: imageURLString) {
+//
+//        if let imageURLString = book?.imageURL, let imageUrl = URL(string: imageURLString) {
             
-            cell.titleImage.kf.setImage(with: imageUrl)
-            
-            
-            
+//            cell.titleImage.kf.setImage(with: imageUrl)
+
+
+
             cell.titleImage.layer.cornerRadius = 5.0
             cell.titleImage.clipsToBounds = true
-            cell.titleImage.alpha = 1
             
             
             
@@ -183,7 +203,7 @@ class EntriesViewController: UIViewController, UICollectionViewDelegate, UIColle
             //                    cell.titleback.addSubview(blurEffectView)
             
             
-        }
+//        }
         
         let isWished = Bool()
         
@@ -194,7 +214,7 @@ class EntriesViewController: UIViewController, UICollectionViewDelegate, UIColle
             
         }
         
-        cell.layer.cornerRadius = 5.0
+//        cell.layer.cornerRadius = 20.0
         cell.layer.masksToBounds = true
         
         cell.titlelabel.alpha = 1
@@ -229,4 +249,27 @@ extension EntriesViewController {
 var textone = String()
 var texttwo = String()
 var textthree = String()
+
+extension CALayer {
+  func applySketchShadow(
+    color: UIColor = .black,
+    alpha: Float = 0.5,
+    x: CGFloat = 0,
+    y: CGFloat = 2,
+    blur: CGFloat = 4,
+    spread: CGFloat = 0)
+  {
+    shadowColor = color.cgColor
+    shadowOpacity = alpha
+    shadowOffset = CGSize(width: x, height: y)
+    shadowRadius = blur / 2.0
+    if spread == 0 {
+      shadowPath = nil
+    } else {
+      let dx = -spread
+      let rect = bounds.insetBy(dx: dx, dy: dx)
+      shadowPath = UIBezierPath(rect: rect).cgPath
+    }
+  }
+}
 
